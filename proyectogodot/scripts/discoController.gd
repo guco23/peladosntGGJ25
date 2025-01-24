@@ -18,7 +18,7 @@ func _ready() -> void:
 	var initialVelY = randf_range(minInitialVelY,maxInitialVelY)
 	
 	linear_velocity = Vector2(initialVelX,initialVelY)
-	print_debug("X:",initialVelX, " Y:",initialVelY)
+	#print_debug("DiscoInitalVel-> ", "X:",initialVelX, " Y:",initialVelY)
 	
 	
 	
@@ -27,4 +27,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	#print_debug(linear_velocity.x,linear_velocity.y)
+	
+	
 	pass
