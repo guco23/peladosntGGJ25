@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://br57rn3lao0dn"]
+[gd_scene load_steps=6 format=3 uid="uid://dtpbaxnldcqu0"]
 
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="1_u8ary"]
-[ext_resource type="PackedScene" path="res://prefabs/frisby.tscn" id="2_d8p35"]
-[ext_resource type="PackedScene" path="res://prefabs/disco.tscn" id="2_mlk18"]
-[ext_resource type="PackedScene" path="res://prefabs/frisby_spawner.tscn" id="4_0i2dt"]
+[ext_resource type="PackedScene" uid="uid://b1s2r1mbrmwu7" path="res://prefabs/frisby.tscn" id="2_d8p35"]
+[ext_resource type="PackedScene" uid="uid://bfy3iboxow3k4" path="res://prefabs/disco.tscn" id="2_mlk18"]
+[ext_resource type="PackedScene" uid="uid://ck6i8hoinifp2" path="res://prefabs/frisby_spawner.tscn" id="4_0i2dt"]
+[ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="5_mip2o"]
 
 [node name="SamuScene" type="Node2D"]
 
@@ -34,4 +35,7 @@ targetNode = NodePath("../Disco")
 [node name="FrisbySpawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_0i2dt")]
 target = NodePath("../Disco")
 minSpawnTime = 1.0
-maxSpawnTime = 1.0
+
+[node name="Lata" parent="." instance=ExtResource("5_mip2o")]
+position = Vector2(717, 377)
+collision_mask = 5
