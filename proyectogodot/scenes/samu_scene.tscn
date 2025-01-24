@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtpbaxnldcqu0"]
+[gd_scene load_steps=4 format=3 uid="uid://dtpbaxnldcqu0"]
 
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="1_u8ary"]
+[ext_resource type="PackedScene" uid="uid://b1s2r1mbrmwu7" path="res://prefabs/frisby.tscn" id="2_d8p35"]
 [ext_resource type="PackedScene" uid="uid://bfy3iboxow3k4" path="res://prefabs/disco.tscn" id="2_mlk18"]
 
 [node name="SamuScene" type="Node2D"]
@@ -24,3 +25,7 @@ rotation = 1.5708
 [node name="Disco" parent="." instance=ExtResource("2_mlk18")]
 position = Vector2(345, 314)
 gravity_scale = 0.0
+
+[node name="Frisby" parent="." node_paths=PackedStringArray("targetNode") instance=ExtResource("2_d8p35")]
+position = Vector2(862, 96)
+targetNode = NodePath("../Disco")
