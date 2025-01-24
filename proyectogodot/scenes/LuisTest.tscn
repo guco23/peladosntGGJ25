@@ -8,7 +8,6 @@
 
 [node name="Lata" parent="." instance=ExtResource("1_hkc8r")]
 position = Vector2(550, 316)
-input_pickable = false
 
 [node name="Muro_samu" parent="." instance=ExtResource("2_vj708")]
 position = Vector2(569, 619)

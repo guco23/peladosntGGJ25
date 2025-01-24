@@ -12,8 +12,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	pass
+
+
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if isPicked:
 		position = get_viewport().get_mouse_position()
+	
 
 
 func _input(event):
@@ -26,6 +31,7 @@ func _input(event):
 
 func Drop():
 	isPicked = false
+	print_debug(freeze)
 
 func Pick():
 	isPicked = true
