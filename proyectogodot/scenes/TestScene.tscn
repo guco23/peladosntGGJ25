@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbgp43f5wghmt"]
+[gd_scene load_steps=6 format=3 uid="uid://dbgp43f5wghmt"]
 
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="1_0evsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrbpg"]
 size = Vector2(1179.5, 91)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0sk2"]
+size = Vector2(116, 721)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23kdi"]
+size = Vector2(128.125, 740)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm7t1"]
+size = Vector2(1124, 91)
 
 [node name="TestScene" type="Node2D"]
 
@@ -16,3 +25,24 @@ shape = SubResource("RectangleShape2D_rrbpg")
 
 [node name="Lata" parent="." instance=ExtResource("1_0evsp")]
 position = Vector2(175, 363)
+
+[node name="Pared1" type="StaticBody2D" parent="."]
+collision_layer = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared1"]
+position = Vector2(-31, 357)
+shape = SubResource("RectangleShape2D_n0sk2")
+
+[node name="Pared2" type="StaticBody2D" parent="."]
+collision_layer = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared2"]
+position = Vector2(1188.94, 356)
+shape = SubResource("RectangleShape2D_23kdi")
+
+[node name="Techo" type="StaticBody2D" parent="."]
+collision_layer = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Techo"]
+position = Vector2(580, -21.5)
+shape = SubResource("RectangleShape2D_mm7t1")
