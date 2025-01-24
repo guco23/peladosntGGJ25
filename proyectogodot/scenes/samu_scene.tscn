@@ -33,3 +33,5 @@ targetNode = NodePath("../Disco")
 
 [node name="FrisbySpawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_0i2dt")]
 target = NodePath("../Disco")
+minSpawnTime = 1.0
+maxSpawnTime = 1.0

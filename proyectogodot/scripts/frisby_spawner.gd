@@ -11,12 +11,28 @@ var spawnTime:float = 0
 var spawnTimeCounter = 0
 
 
-func spawnFrisby():
+func getFrisbySpawnPosition(corner:int) -> Vector2:
 	
+	if corner == 0:
+		return Vector2(0,0)
+	elif corner == 1: 
+		return Vector2(get_viewport().size.x,0)
+	elif corner == 2: 
+		return Vector2(0,get_viewport().size.y)
+	elif corner == 3: 
+		return Vector2(get_viewport().size.x,get_viewport().size.y)
+	else: 
+		return Vector2(-1,-1)
+	
+
+func spawnFrisby():
 	
 	var newFrisby = FRISBY.instantiate()
 	
-	newFrisby.position = Vector2(0,0)
+	var corner =  randi()%4
+	
+		
+	newFrisby.position = getFrisbySpawnPosition(corner)
 	newFrisby.targetNode = target
 	
 	add_child(newFrisby)
