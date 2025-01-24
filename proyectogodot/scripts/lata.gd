@@ -12,4 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	pass # Replace with function body.
+	print_debug("lata input")
+
+
+func _on_body_entered(body: Node) -> void:
+	print_debug("lata collision")
