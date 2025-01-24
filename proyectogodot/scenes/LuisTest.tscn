@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cih1ywa17l4wl"]
+[gd_scene load_steps=4 format=3 uid="uid://cih1ywa17l4wl"]
 
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="1_hkc8r"]
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="2_vj708"]
+[ext_resource type="PackedScene" uid="uid://nvosr181q3fo" path="res://prefabs/Mosca.tscn" id="3_han1k"]
 
 [node name="LuisTest" type="Node2D"]
 
 [node name="Lata" parent="." instance=ExtResource("1_hkc8r")]
 position = Vector2(550, 316)
+input_pickable = false
 
 [node name="Muro_samu" parent="." instance=ExtResource("2_vj708")]
-position = Vector2(550, 583)
+position = Vector2(569, 619)
+
+[node name="Mosca" parent="." node_paths=PackedStringArray("playerRef") instance=ExtResource("3_han1k")]
+position = Vector2(311, 401)
+input_pickable = true
+playerRef = NodePath("../Lata")
+
+[connection signal="input_event" from="Mosca" to="Mosca" method="_on_input_event"]
