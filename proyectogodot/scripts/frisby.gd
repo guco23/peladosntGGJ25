@@ -1,3 +1,4 @@
+class_name frisby
 extends RigidBody2D
 
 @export var targetNode:Node2D 
