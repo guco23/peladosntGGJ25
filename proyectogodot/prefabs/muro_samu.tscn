@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqwm74cp3654i"]
+
+[ext_resource type="Texture2D" uid="uid://cjqcm23t60ys6" path="res://icon.svg" id="1_l46gc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5y3ac"]
+size = Vector2(129, 129)
+
+[node name="Muro_samu" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l46gc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_5y3ac")
