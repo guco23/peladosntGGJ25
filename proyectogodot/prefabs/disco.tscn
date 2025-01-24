@@ -12,6 +12,7 @@ radius = 83.6754
 
 [node name="Disco" type="RigidBody2D"]
 scale = Vector2(1.00404, 1)
+collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_1ti8x")
 linear_damp_mode = 1
 angular_damp_mode = 1

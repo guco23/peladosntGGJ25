@@ -8,8 +8,11 @@ size = Vector2(116, 8)
 
 [node name="Frisby" type="RigidBody2D"]
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_ahuek")
 velocityModule = 250.0
+lifeTime = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_khaxh")
@@ -17,3 +20,5 @@ shape = SubResource("RectangleShape2D_khaxh")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.898515, 0.0530889)
 texture = ExtResource("1_6ahm4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
