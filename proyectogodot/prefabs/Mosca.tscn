@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://nvosr181q3fo"]
+[gd_scene load_steps=4 format=3 uid="uid://nvosr181q3fo"]
 
+[ext_resource type="Script" path="res://mosca.gd" id="1_glyjn"]
 [ext_resource type="Texture2D" uid="uid://cjqcm23t60ys6" path="res://icon.svg" id="1_p63rx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ucm20"]
 
-[node name="Mosca" type="RigidBody2D"]
+[node name="Mosca" type="StaticBody2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_glyjn")
+moscaSpeed = 100.0
+variablity = 10.0
+offset = Vector2(0, -50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ucm20")
