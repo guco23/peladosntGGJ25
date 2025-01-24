@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://dbgp43f5wghmt"]
+[gd_scene load_steps=3 format=3 uid="uid://dbgp43f5wghmt"]
+
+[ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="1_0evsp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rrbpg"]
+size = Vector2(1179.5, 91)
 
 [node name="TestScene" type="Node2D"]
+
+[node name="Suelo" type="StaticBody2D" parent="."]
+collision_layer = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo"]
+position = Vector2(572.25, 671)
+shape = SubResource("RectangleShape2D_rrbpg")
+
+[node name="Lata" parent="." instance=ExtResource("1_0evsp")]
+position = Vector2(175, 363)

@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://d1vst1fcr6m32"]
+[gd_scene load_steps=2 format=3 uid="uid://d1vst1fcr6m32"]
 
-[node name="Lata" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7su64"]
+
+[node name="Lata" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7su64")
