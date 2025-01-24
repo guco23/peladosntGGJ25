@@ -1,3 +1,5 @@
+extends Node
+
 var score : int
 var difficulty : int
 var agitation : int
