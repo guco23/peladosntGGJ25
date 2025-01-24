@@ -18,20 +18,16 @@ func _process(delta: float) -> void:
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if isPicked:
 		position = get_viewport().get_mouse_position()
-	
-
 
 func _input(event):
-	if event is InputEventMouseButton and event.pressed:
-		if isMoused:
+	if event is InputEventMouseButton:
+		if event.pressed and isMoused:
 			Pick()
-	if event is InputEventMouseButton and event.is_released():
-		Drop()
-
+		if !event.pressed and isPicked:
+			Drop()
 
 func Drop():
 	isPicked = false
-	print_debug(freeze)
 
 func Pick():
 	isPicked = true
