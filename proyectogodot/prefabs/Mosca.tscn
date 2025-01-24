@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://nvosr181q3fo"]
+
+[ext_resource type="Texture2D" uid="uid://cjqcm23t60ys6" path="res://icon.svg" id="1_p63rx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ucm20"]
+
+[node name="Mosca" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ucm20")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.107223, 0.107223)
+texture = ExtResource("1_p63rx")
