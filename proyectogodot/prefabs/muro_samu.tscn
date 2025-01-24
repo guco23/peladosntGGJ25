@@ -6,6 +6,7 @@
 size = Vector2(129, 129)
 
 [node name="Muro_samu" type="Node2D"]
+scale = Vector2(8.94291, 0.398914)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_l46gc")

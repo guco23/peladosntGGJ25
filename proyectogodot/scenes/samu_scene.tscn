@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtpbaxnldcqu0"]
+
+[ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="1_u8ary"]
+
+[node name="SamuScene" type="Node2D"]
+
+[node name="Muros" type="Node2D" parent="."]
+
+[node name="Muro_samu" parent="Muros" instance=ExtResource("1_u8ary")]
+position = Vector2(572, -26)
+
+[node name="Muro_samu2" parent="Muros" instance=ExtResource("1_u8ary")]
+position = Vector2(570, 674)
+
+[node name="Muro_samu3" parent="Muros" instance=ExtResource("1_u8ary")]
+position = Vector2(1178, 313)
+rotation = 1.5708
+
+[node name="Muro_samu4" parent="Muros" instance=ExtResource("1_u8ary")]
+position = Vector2(-28, 345)
+rotation = 1.5708
