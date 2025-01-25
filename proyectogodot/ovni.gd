@@ -14,6 +14,16 @@ var randomPositionsCount:int = 0
 
 @export var velocityModule:float
 
+@export var timeToShoot:float
+@export var timeToScape:float
+
+var timeCounter:float
+
+var canShot:bool = false
+var canScape:bool = false
+
+
+
 enum STATES{RANDOM_POSITIONS,COLOCARSE_ARRIBA,BUSCAR_ATAQUE,ATACAR, SALIR}
 
 var curr_state:STATES 
@@ -91,15 +101,32 @@ func _process(delta: float) -> void:
 	elif  curr_state == STATES.ATACAR:
 		
 		#esperar
+		if !canShot:
+			timeCounter += delta
+			if timeCounter > timeToShoot:
+				timeCounter = 0
+				canShot = true
+				#disparar bala/laser
+		elif !canScape: #esperar a escapa
+			timeCounter += delta
+			if  timeCounter > timeToScape:
+				canScape = true
+				
+				linear_velocity = Vector2(1,0) * velocityModule
+				
+				curr_state == STATES.SALIR
 		
-		#disparar bala/laser
 		
-		#esperar y cambiar de estado
 		
 		pass
 	
 	
 	elif curr_state == STATES.SALIR:
+		
+		if position.x > get_viewport_rect().size.x + sprite_size.x:
+			queue_free()
+		
+		
 		pass
 	
 	
@@ -136,14 +163,6 @@ func goRandomPosition():
 	setVelocityToDir()
 
 	
-func atack():
-	
-	#moverse de izquierda a derecha y de derecha a izquierda
-	
-	#ir hacia el player rapido
-	
-	#disparar el laser
-	
-	pass
+
 	
 	
