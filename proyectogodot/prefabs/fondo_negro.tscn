@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2vu6lki3c24f"]
+
+[ext_resource type="Texture2D" uid="uid://bhaafilxjo2h0" path="res://sprites/Coke.png" id="1_abcvp"]
+
+[node name="FondoNegro" type="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(588, 182)
+scale = Vector2(63.88, 63.88)
+texture = ExtResource("1_abcvp")

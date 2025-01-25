@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtpbaxnldcqu0"]
+[gd_scene load_steps=9 format=3 uid="uid://dtpbaxnldcqu0"]
 
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="1_u8ary"]
 [ext_resource type="PackedScene" uid="uid://b1s2r1mbrmwu7" path="res://prefabs/frisby.tscn" id="2_d8p35"]
 [ext_resource type="PackedScene" uid="uid://bfy3iboxow3k4" path="res://prefabs/disco.tscn" id="2_mlk18"]
 [ext_resource type="PackedScene" uid="uid://ck6i8hoinifp2" path="res://prefabs/frisby_spawner.tscn" id="4_0i2dt"]
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="5_mip2o"]
+[ext_resource type="PackedScene" uid="uid://c2vu6lki3c24f" path="res://prefabs/fondo_negro.tscn" id="6_3fw6h"]
+[ext_resource type="PackedScene" uid="uid://bdxf4x40xin7l" path="res://prefabs/interruptor.tscn" id="7_blpky"]
+[ext_resource type="Script" path="res://prefabs/fondo_negro.gd" id="7_l88u5"]
 
 [node name="SamuScene" type="Node2D"]
 
@@ -39,3 +42,12 @@ velocityModule = 500.0
 
 [node name="Lata" parent="." instance=ExtResource("5_mip2o")]
 position = Vector2(717, 377)
+
+[node name="FondoNegro" parent="." instance=ExtResource("6_3fw6h")]
+modulate = Color(0, 0, 0, 0.917647)
+position = Vector2(561, 399)
+script = ExtResource("7_l88u5")
+
+[node name="Interruptor" parent="." node_paths=PackedStringArray("fondo") instance=ExtResource("7_blpky")]
+position = Vector2(1073, 343)
+fondo = NodePath("../FondoNegro")
