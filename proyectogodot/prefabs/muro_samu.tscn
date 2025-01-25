@@ -1,15 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqwm74cp3654i"]
-
-[ext_resource type="Texture2D" uid="uid://cjqcm23t60ys6" path="res://icon.svg" id="1_l46gc"]
+[gd_scene load_steps=2 format=3 uid="uid://cqwm74cp3654i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5y3ac"]
 size = Vector2(129, 129)
 
 [node name="Muro_samu" type="Node2D"]
 scale = Vector2(8.94291, 0.398914)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_l46gc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2

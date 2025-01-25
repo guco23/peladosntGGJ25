@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://buhxipay20mbe"]
+
+[ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="1_f16cr"]
+[ext_resource type="Texture2D" uid="uid://van3b883d8iu" path="res://sprites/Fondo.png" id="2_5gtwk"]
+[ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="3_7ak5f"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(578, 328)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_5gtwk")
+
+[node name="Muros" type="Node2D" parent="."]
+
+[node name="Muro_samu2" parent="Muros" instance=ExtResource("1_f16cr")]
+position = Vector2(-27, 269)
+rotation = 1.5708
+
+[node name="Muro_samu4" parent="Muros" instance=ExtResource("1_f16cr")]
+position = Vector2(1181, 269)
+rotation = 1.5708
+
+[node name="Muro_samu" parent="Muros" instance=ExtResource("1_f16cr")]
+position = Vector2(572, 678)
+
+[node name="Mesa" parent="Muros" instance=ExtResource("1_f16cr")]
+position = Vector2(229, 441)
+scale = Vector2(-2.66258, -0.197115)
+
+[node name="StaticBody2D" parent="Muros/Mesa" index="0"]
+collision_layer = 64
+
+[node name="Mesa2" parent="Muros" instance=ExtResource("1_f16cr")]
+position = Vector2(1022, 537)
+scale = Vector2(-1.22258, -1.74997)
+
+[node name="StaticBody2D" parent="Muros/Mesa2" index="0"]
+collision_layer = 64
+
+[node name="Muro_samu3" parent="Muros" instance=ExtResource("1_f16cr")]
+position = Vector2(572, -28)
+
+[node name="Lata" parent="." instance=ExtResource("3_7ak5f")]
+position = Vector2(226, 320)
+
+[editable path="Muros/Mesa"]
+[editable path="Muros/Mesa2"]

@@ -38,6 +38,7 @@ click={
 2d_physics/layer_4="LataTrigger"
 2d_physics/layer_5="Burbujas"
 2d_physics/layer_6="LataFisica"
+2d_physics/layer_7="Muebles"
 
 [rendering]
 
