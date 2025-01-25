@@ -11,7 +11,9 @@ enum GasMode {VELOCITY, ACELERATION }
 
 @export var mode:GasMode 
 
-@export var releaseCanAngularVelocity:float = 0.3
+@export var releaseCanMinAngularVelocity:float = 0.3
+@export var releaseCanMaxAngularVelocity:float = 1
+
 @export var lataDragginLinealVelUmbral:float = 4
 @export var lataMovingLinealVelUmbral:float = 5
 @export var lataMovingAngularVelUmbral:float = 0.4
@@ -46,7 +48,14 @@ func releaseCan():
 	GameManager.isCokeDragging = false
 	#ajustar velocidades 
 	linear_velocity = Vector2.ZERO
-	angular_velocity = releaseCanAngularVelocity
+	
+	var ang_vel = randf_range(releaseCanMinAngularVelocity,releaseCanMaxAngularVelocity)
+	
+	var postive:bool = true if randi()%2 == 0 else false
+	
+	if(!postive): ang_vel *= -1
+	
+	angular_velocity = ang_vel
 
 
 #calculo del gas si estas dragueando la lata, solo para modo VELOCITY
@@ -184,6 +193,9 @@ func a_volar(body:Node2D):
 	
 	print_debug("aqui")
 	releaseCan()
+	
+	
+	
 	linear_velocity += Vector2(0,-500)
 	
 	pass
