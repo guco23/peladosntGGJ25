@@ -4,21 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://cjqcm23t60ys6" path="res://icon.svg" id="1_p63rx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ucm20"]
+radius = 25.1794
 
 [node name="Mosca" type="StaticBody2D"]
 position = Vector2(1, 0)
 collision_layer = 4
 collision_mask = 8
+input_pickable = true
 script = ExtResource("1_glyjn")
 moscaSpeed = 100.0
 variablity = 10.0
 offset = Vector2(0, -50)
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.372647, 0.372647)
+texture = ExtResource("1_p63rx")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ucm20")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.107223, 0.107223)
-texture = ExtResource("1_p63rx")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

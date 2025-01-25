@@ -46,16 +46,16 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body is PhysicsBody2D and !body.get_collision_layer_value(2):
 		releaseCan()
-	print_debug("lata collision")
+	#print_debug("lata collision")
 
 
 func _on_mouse_entered() -> void:
 	isMoused = true
-	print_debug("mouse entered")
+	#print_debug("mouse entered")
 
 
 func _on_mouse_exited() -> void:
-	print_debug("mouse exited")
+	#print_debug("mouse exited")
 	isMoused = false
 
 

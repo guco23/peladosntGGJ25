@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://deq6nd4ner30v"]
+
+[ext_resource type="Script" path="res://prefabs/burbuja.gd" id="1_ko1rn"]
+[ext_resource type="Texture2D" uid="uid://cjqcm23t60ys6" path="res://icon.svg" id="1_wgwoo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uydhk"]
+
+[node name="Burbuja" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 18
+script = ExtResource("1_ko1rn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.14088, 0.139534)
+texture = ExtResource("1_wgwoo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uydhk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

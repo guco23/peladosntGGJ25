@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1vst1fcr6m32"]
+[gd_scene load_steps=5 format=3 uid="uid://d1vst1fcr6m32"]
 
 [ext_resource type="Script" path="res://scripts/lata.gd" id="1_pv43h"]
 [ext_resource type="Texture2D" uid="uid://bhaafilxjo2h0" path="res://sprites/Coke.png" id="2_7mm1n"]
+[ext_resource type="Script" path="res://buble_spawner.gd" id="3_vp8yl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7su64"]
 size = Vector2(62, 96)
@@ -20,7 +21,12 @@ texture = ExtResource("2_7mm1n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7su64")
 
+[node name="BubleSpawner" type="Node2D" parent="."]
+position = Vector2(0, -42)
+script = ExtResource("3_vp8yl")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="gasUp" from="." to="BubleSpawner" method="_on_lata_gas_up"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

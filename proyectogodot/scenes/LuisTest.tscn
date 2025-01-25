@@ -31,7 +31,7 @@ position = Vector2(2.57027, 6.00919)
 target = NodePath("../Lata")
 
 [node name="Mosca" parent="." node_paths=PackedStringArray("playerRef") instance=ExtResource("3_han1k")]
-position = Vector2(2.57027, 6.00919)
+position = Vector2(193, 348)
 playerRef = NodePath("../Lata")
 
 [connection signal="gasUp" from="Lata" to="Label" method="_on_lata_gas_up"]
