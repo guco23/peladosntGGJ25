@@ -58,6 +58,9 @@ var collisioned:bool = false
 var linealVelocityToApply:Vector2 
 var angularVelocityToApply:float
 
+#Animacion de la lata
+var anim:AnimatedSprite2D
+
 
 #SonidoCosas
 var audi:AudioStreamPlayer2D
@@ -76,7 +79,7 @@ func _ready() -> void:
 	lastPos = position
 	lastDragginTime = Time.get_ticks_msec()
 	audi = get_node("AudioStreamPlayer2D")
-
+	anim = get_node("Sprite2D")
 
 #soltar la lata
 func releaseCan():
@@ -195,7 +198,17 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			pass
 
 
+#Esto hay que parametrizarlo un poco para que quede elegante
 func _on_gas_up(gasValue: Variant) -> void:
+	if(gasValue>GameManager.gasThreshold||gasValue < GameManager.gasThreshold-1200):
+		#frame inicial
+		anim.frame =0
+	elif gasValue<GameManager.gasThreshold-1000:
+		#frame 2
+		anim.frame = 1
+	elif gasValue<GameManager.gasThreshold-500:
+		#frame 3
+		anim.frame = 2
 	pass # Replace with function body.
 
 
