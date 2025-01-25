@@ -16,7 +16,7 @@ extends Node
 var moscaPref : PackedScene = preload("res://prefabs/Mosca.tscn") #El prefab de la mosca
 var discoPref : PackedScene = preload("res://prefabs/disco.tscn") #El prefab del disco (solo puede haber un disco)
 @export var mano : Node2D #La mano en la escena
-@export var fisbeeSpawner : Node2D
+@export var frisbeeSpawner : Node2D
 @export var luz : Node2D
 
 var rand = RandomNumberGenerator.new()
@@ -79,20 +79,15 @@ func GeneraMosca():
 	var mosca = moscaPref.instantiate()
 	mosca.playerRef = playerRef
 	add_sibling(mosca)
-	
-	print_debug("mosca generada")
-	pass
 
 func GeneraDisco():
-	print_debug("disco generado")
 	discoWeight = moscaWeight #para que no pueda volver a suceder
 
 func LlamaMano():
 	mano.launchPunch()
-	print_debug("mano llamada")
 
 func LlamaFrisbee():
-	print_debug("frisbe llamado")
+	frisbeeSpawner.spawnFrisby()
 
 func ApagaLuz():
 	print_debug("apaga luz")
