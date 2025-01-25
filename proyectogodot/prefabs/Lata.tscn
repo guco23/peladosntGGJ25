@@ -12,7 +12,7 @@ size = Vector2(62, 96)
 
 [node name="Lata" type="RigidBody2D"]
 collision_layer = 32
-collision_mask = 2
+collision_mask = 66
 input_pickable = true
 mass = 0.35
 script = ExtResource("1_pv43h")

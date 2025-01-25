@@ -15,8 +15,8 @@ position = Vector2(552, 544)
 continuous_cd = 2
 angleUpApertura = 30.0
 velocityColisionModule = 600.0
-minCollisonAngleVel = 4.0
-maxCollisonAngleVel = 8.0
+minCollisonAngleVel = 0.3
+maxCollisonAngleVel = 1.0
 timeToFly = 0.1
 postColisionInvencibleTime = 1.0
 
@@ -32,15 +32,10 @@ script = ExtResource("4_i44vx")
 [node name="Interruptor y fondo" parent="." instance=ExtResource("4_xr0ex")]
 position = Vector2(-6, 0)
 
-[node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner", "interruptorYfondo") instance=ExtResource("5_fibx3")]
-moscaWeight = 1
-discoWeight = 1
-manoWeight = 1
-frisbeeWeight = 1
+[node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner") instance=ExtResource("5_fibx3")]
 playerRef = NodePath("../Lata")
 mano = NodePath("../Mano")
 frisbeeSpawner = NodePath("../FrisbySpawner")
-interruptorYfondo = NodePath("../Interruptor y fondo")
 
 [node name="FrisbySpawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_tuv5d")]
 target = NodePath("../Lata")
