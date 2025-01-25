@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3h07ovlys7f0"]
+
+[ext_resource type="Texture2D" uid="uid://b55h6ltx3wwjr" path="res://sprites/Ovni.png" id="1_wksfg"]
+[ext_resource type="Script" path="res://ovni.gd" id="2_p5i58"]
+
+[node name="Ovni" type="Sprite2D"]
+position = Vector2(-2.99998, 4.99999)
+scale = Vector2(6.64, 6.64)
+texture = ExtResource("1_wksfg")
+script = ExtResource("2_p5i58")
+initialPos = null
+nSidesTouches = null
+leftSideTargetX = null
