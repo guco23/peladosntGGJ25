@@ -22,6 +22,7 @@ var timeCounter:float
 var canShot:bool = false
 var canScape:bool = false
 
+const BULLET = preload("res://prefabs/bullet.tscn")
 
 
 enum STATES{RANDOM_POSITIONS,COLOCARSE_ARRIBA,BUSCAR_ATAQUE,ATACAR, SALIR}
@@ -34,6 +35,12 @@ var sprite_size:Vector2
 var targetPos:Vector2
 
 @export var closeUmbral:float = 10
+
+
+@export var bulletSpeed:float = 800
+
+@export var bulletSpawnOffset:Vector2 = Vector2(0,10)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -107,6 +114,8 @@ func _process(delta: float) -> void:
 				timeCounter = 0
 				canShot = true
 				#disparar bala/laser
+				shoot()
+				
 		elif !canScape: #esperar a escapa
 			timeCounter += delta
 			if  timeCounter > timeToScape:
@@ -134,7 +143,36 @@ func _process(delta: float) -> void:
 	pass
 	
 	
+
+#dispara aleatoriamente una bala o un laser hacia abajo
+func shoot():
 	
+	var shootType = randi()%1
+	
+	print_debug("aaaa")
+	
+	#disparo normal
+	if shootType == 0:
+		
+		
+		print_debug("bbbb")
+		
+		var newBullet = BULLET.instantiate()
+		
+		newBullet.linear_velocity = Vector2(0,bulletSpeed)
+		newBullet.position = Vector2(0,0) - bulletSpawnOffset
+		
+		print_debug("my pos:", position)
+		print_debug("my global:",global_position)
+		
+		
+		add_child(newBullet)
+		
+		
+	elif shootType == 1:#disparo de laser
+		pass
+	
+
 	
 	
 func validPos(pos:Vector2) -> bool:
