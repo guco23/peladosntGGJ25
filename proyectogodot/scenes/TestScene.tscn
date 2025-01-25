@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://dbgp43f5wghmt"]
 
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="1_0evsp"]
-[ext_resource type="PackedScene" uid="uid://dxiexdiyj7w6e" path="res://prefabs/Mano.tscn" id="2_f8kvm"]
+[ext_resource type="PackedScene" uid="uid://by8kpetkrl5ra" path="res://prefabs/Mano.tscn" id="2_f8kvm"]
 [ext_resource type="PackedScene" uid="uid://ck6i8hoinifp2" path="res://prefabs/frisby_spawner.tscn" id="3_ekbbw"]
-[ext_resource type="PackedScene" uid="uid://dgst6daw2v3n5" path="res://prefabs/interruptor_y_fondo.tscn" id="5_ex1xu"]
+[ext_resource type="PackedScene" uid="uid://lexg22o8obe5" path="res://prefabs/interruptor_y_fondo.tscn" id="5_ex1xu"]
 [ext_resource type="PackedScene" uid="uid://bibfm8xlyhlku" path="res://prefabs/EventManager.tscn" id="5_qf3io"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrbpg"]
@@ -61,7 +61,6 @@ target = NodePath("../Lata")
 position = Vector2(483, 376)
 
 [node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner", "interruptorYfondo") instance=ExtResource("5_qf3io")]
-moscaWeight = 1
 manchaWeight = 6
 playerRef = NodePath("../Lata")
 mano = NodePath("../Mano")
