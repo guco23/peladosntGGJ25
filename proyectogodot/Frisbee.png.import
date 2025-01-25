@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5psc05fqqv4f"
-path="res://.godot/imported/Frisbee.png-04b90c0a35ce6997129825fb08cfcbf9.ctex"
+uid="uid://bo3a4ynag7b31"
+path="res://.godot/imported/Frisbee.png-9b2c38d60e39aa22a2896a652f8acb35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Frisbee.png"
-dest_files=["res://.godot/imported/Frisbee.png-04b90c0a35ce6997129825fb08cfcbf9.ctex"]
+source_file="res://Frisbee.png"
+dest_files=["res://.godot/imported/Frisbee.png-9b2c38d60e39aa22a2896a652f8acb35.ctex"]
 
 [params]
 
