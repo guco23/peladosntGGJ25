@@ -1,12 +1,17 @@
 extends Node
 
-var score : int
-var difficulty : int
 var agitation : int
 
 var isCokeDragging: bool = false
+var game_time : int
 
 func _ready() -> void:
-	score = 0
-	difficulty = 0
 	agitation = 0 
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	game_time += delta  # Suma el tiempo transcurrido
+
+func restartTime():
+	game_time = 0
