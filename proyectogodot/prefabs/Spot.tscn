@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmtwf8i1schw6"]
+[gd_scene load_steps=10 format=3 uid="uid://6mgmi6bcd07t"]
 
 [ext_resource type="Texture2D" uid="uid://ciam4jqdl1yhl" path="res://Mancha50x50.png" id="1_ii47l"]
 [ext_resource type="Script" path="res://scripts/spot.gd" id="1_k70p6"]

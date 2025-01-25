@@ -41,6 +41,7 @@ var lastDragginTime:float
 
 #tiempo que tarda desde detectar la colision hasta chocars
 @export var timeToFly:float
+var timeToFlyCounter:float = 0
 
 #tiempo que es invencible la lata despues de chocar
 @export var postColisionInvencibleTime:float 
@@ -52,6 +53,13 @@ var invencibleTimeCounter:float
 
 #si la lata es invencible en este instante
 var invencible:bool 
+
+var collisioned:bool = false
+
+var linealVelocityToApply:Vector2 
+var angularVelocityToApply:float
+
+
 
 signal gasUp (gasValue)
 
@@ -192,6 +200,20 @@ func _on_gas_up(gasValue: Variant) -> void:
 
 func _process(delta: float) -> void:
 	
+	if collisioned:
+		timeToFlyCounter += delta
+		if timeToFlyCounter > timeToFly:
+			
+			linear_velocity += linealVelocityToApply
+			angular_velocity += angularVelocityToApply
+			
+			collisioned = false
+			invencible = true
+			timeToFlyCounter = 0
+			invencibleTimeCounter = 0
+			
+	
+	
 	if invencible:
 		invencibleTimeCounter += delta
 		if invencibleTimeCounter > postColisionInvencibleTime:
@@ -218,12 +240,14 @@ func _on_trigger_enter(body: Node2D) -> void:
 		if isInLayer(body.collision_layer,3):
 			#mandar la lata a tomar por culo
 			a_volar(body)
+			
 	
 	pass # Replace with function body.
 
 
 func a_volar(body:Node2D):
 	
+	if collisioned: return
 	if invencible: return
 	
 	print_debug("aqui")
@@ -237,11 +261,11 @@ func a_volar(body:Node2D):
 	
 	var angleVel = randf_range(minCollisonAngleVel,maxCollisonAngleVel)
 	
-	linear_velocity += dir * velocityColisionModule
-	angular_velocity += angleVel
+	linealVelocityToApply = dir * velocityColisionModule
+	angularVelocityToApply = angleVel
 	
-	
-	invencible = true
-	invencibleTimeCounter = 0
+	collisioned = true
+	timeToFlyCounter = 0
+
 	
 	pass
