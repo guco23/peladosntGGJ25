@@ -47,11 +47,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0uxvu"]
-size = Vector2(178, 110)
+size = Vector2(179.411, 40.3767)
 
 [node name="Lampara" type="RigidBody2D"]
 collision_layer = 4
-collision_mask = 8
+collision_mask = 10
 freeze = true
 script = ExtResource("1_q2i1t")
 
@@ -60,5 +60,6 @@ scale = Vector2(7.165, 7.165)
 sprite_frames = SubResource("SpriteFrames_wmbik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.2875, 68.8438)
 scale = Vector2(1.825, 1.825)
 shape = SubResource("RectangleShape2D_0uxvu")

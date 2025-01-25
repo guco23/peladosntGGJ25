@@ -36,8 +36,6 @@ rotation = 1.5708
 [node name="Lata" parent="." instance=ExtResource("2_i4lgy")]
 position = Vector2(552, 544)
 continuous_cd = 2
-minCollisonAngleVel = 4.0
-maxCollisonAngleVel = 8.0
 timeToFly = 0.1
 
 [node name="Label" type="Label" parent="."]
