@@ -53,7 +53,7 @@ func _on_body_entered(body:Node) -> void:
 			print_debug("he chocado con pared, destruccion")
 			#queue_free()
 		
-		
+	
 	
 	print_debug("he chocao")
 	

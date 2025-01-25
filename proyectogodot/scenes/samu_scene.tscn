@@ -38,4 +38,3 @@ minSpawnTime = 1.0
 
 [node name="Lata" parent="." instance=ExtResource("5_mip2o")]
 position = Vector2(717, 377)
-collision_mask = 5

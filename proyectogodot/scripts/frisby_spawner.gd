@@ -6,6 +6,7 @@ const FRISBY:PackedScene = preload("res://prefabs/frisby.tscn")
 
 @export var minSpawnTime:float = 2
 @export var maxSpawnTime:float = 3
+@export var velocityModule:float = 450
 
 var spawnTime:float = 0
 var spawnTimeCounter = 0
@@ -34,6 +35,8 @@ func spawnFrisby():
 		
 	newFrisby.position = getFrisbySpawnPosition(corner)
 	newFrisby.targetNode = target
+	newFrisby.velocityModule = velocityModule
+	
 	
 	add_child(newFrisby)
 	
