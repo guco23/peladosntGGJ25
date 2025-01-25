@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bohupdp7wvnhx"]
+[gd_scene load_steps=4 format=3 uid="uid://b1s2r1mbrmwu7"]
 
-[ext_resource type="Texture2D" uid="uid://cjqcm23t60ys6" path="res://icon.svg" id="1_6ahm4"]
 [ext_resource type="Script" path="res://scripts/frisby.gd" id="1_ahuek"]
+[ext_resource type="Texture2D" uid="uid://b5psc05fqqv4f" path="res://sprites/Frisbee.png" id="2_s424e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khaxh"]
-size = Vector2(116, 8)
+size = Vector2(95, 35)
 
 [node name="Frisby" type="RigidBody2D"]
 collision_layer = 4
@@ -18,10 +18,11 @@ velocityModule = 250.0
 lifeTime = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_khaxh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.898515, 0.0530889)
-texture = ExtResource("1_6ahm4")
+scale = Vector2(2.96, 2.96)
+texture = ExtResource("2_s424e")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

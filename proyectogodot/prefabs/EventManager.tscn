@@ -5,13 +5,14 @@
 [node name="EventManager" type="Node2D"]
 script = ExtResource("1_2j1a4")
 minTime = 1.0
-startTime = 4.0
-reductonFactor = 0.2
-moscaWeight = 1
-discoWeight = 3
-manoWeight = 4
-frisbeeWeight = 4
-luzWeight = 7
+startTime = 2.0
+reductonFactor = 0.5
+moscaWeight = 2
+discoWeight = 1
+manoWeight = 1
+frisbeeWeight = 1
+luzWeight = 2
+manchaWeight = 2
 
 [node name="Timer" type="Timer" parent="."]
 

@@ -27,6 +27,30 @@ var lastPos:Vector2
 var lastDragginTime:float
 
 
+#variables para volar la lata
+
+#es el angulo random en que salta hacia arriba, 180 todo el arco superior completo, 360 puede ir hacia abajo  
+@export var angleUpApertura:float  
+
+#fuerza con la que salta la lata al chocar
+@export var velocityColisionModule:float
+
+@export var minCollisonAngleVel:float
+@export var maxCollisonAngleVel:float
+
+
+#tiempo que tarda desde detectar la colision hasta chocars
+@export var timeToFly:float
+
+#tiempo que es invencible la lata despues de chocar
+@export var postColisionInvencibleTime:float 
+
+#tiempo que es invencible la lata nada mas cogerla, opcional
+@export var justPickedInvencibleTime:float 
+
+#si la lata es invencible en este instante
+var invencible:bool 
+
 signal gasUp (gasValue)
 
 # Called when the node enters the scene tree for the first time.
@@ -194,8 +218,16 @@ func a_volar(body:Node2D):
 	print_debug("aqui")
 	releaseCan()
 	
+	var angle = randf_range(-angleUpApertura/2,angleUpApertura/2)
 	
+	var dirX = sin(deg_to_rad(angle))
+	var dirY = cos(deg_to_rad(angle))
+	var dir = Vector2(dirX,-dirY)
 	
-	linear_velocity += Vector2(0,-500)
+	var angleVel = randf_range(minCollisonAngleVel,maxCollisonAngleVel)
+	
+	linear_velocity += dir * velocityColisionModule
+	angular_velocity += angleVel
+	
 	
 	pass
