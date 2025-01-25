@@ -12,19 +12,22 @@ signal gasUp (gasValue)
 func _ready() -> void:
 	isPicked = false
 	isMoused = false
+	contact_monitor = true
+	max_contacts_reported = 1
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-
+func releaseCan():
+	is_draggin = false
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0.3
 
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if !event.is_pressed():
-			is_draggin = false
-			linear_velocity = Vector2.ZERO
-			angular_velocity = 0.3
+			releaseCan()
 	if event is InputEventMouseMotion and is_draggin:
 		if event.velocity.length()/200 > 4:
 			gasVal+= event.velocity.length()/200
@@ -41,6 +44,8 @@ func _physics_process(delta: float) -> void:
 		gasUp.emit(gasVal)
 
 func _on_body_entered(body: Node) -> void:
+	if body is PhysicsBody2D and !body.get_collision_layer_value(2):
+		releaseCan()
 	print_debug("lata collision")
 
 
@@ -58,4 +63,5 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			is_draggin = true
+			pass
 	pass # Replace with function body.

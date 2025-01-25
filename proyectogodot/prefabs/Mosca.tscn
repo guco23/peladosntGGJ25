@@ -20,3 +20,5 @@ shape = SubResource("CircleShape2D_ucm20")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.107223, 0.107223)
 texture = ExtResource("1_p63rx")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
