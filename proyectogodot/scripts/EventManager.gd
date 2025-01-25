@@ -90,6 +90,7 @@ func GeneraDisco():
 
 func GeneraOvni():
 	var ovni = ovniPref.instantiate()
+	ovni.target = playerRef
 	add_sibling(ovni)
 
 func LlamaMano():
