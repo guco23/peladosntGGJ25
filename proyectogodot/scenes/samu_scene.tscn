@@ -33,6 +33,7 @@ gravity_scale = 0.0
 
 [node name="Frisby" parent="." node_paths=PackedStringArray("targetNode") instance=ExtResource("2_d8p35")]
 position = Vector2(1062, 51)
+scale = Vector2(0.997018, 0.992614)
 mass = 1.0
 targetNode = NodePath("../Disco")
 
@@ -47,6 +48,7 @@ angleUpApertura = 30.0
 velocityColisionModule = 600.0
 minCollisonAngleVel = 1.0
 maxCollisonAngleVel = 2.0
+postColisionInvencibleTime = 1.0
 
 [node name="FondoNegro" parent="." instance=ExtResource("6_3fw6h")]
 visible = false
