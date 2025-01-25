@@ -59,7 +59,8 @@ target = NodePath("../Lata")
 [node name="Lata" parent="." instance=ExtResource("1_0evsp")]
 position = Vector2(483, 376)
 
-[node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "fisbeeSpawner") instance=ExtResource("5_qf3io")]
+[node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner") instance=ExtResource("5_qf3io")]
+frisbeeWeight = 8
 playerRef = NodePath("../Lata")
 mano = NodePath("../Mano")
-fisbeeSpawner = NodePath("../FrisbySpawner")
+frisbeeSpawner = NodePath("../FrisbySpawner")
