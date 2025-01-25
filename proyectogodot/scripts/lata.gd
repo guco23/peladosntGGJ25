@@ -148,3 +148,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if event.is_pressed():
 			GameManager.isCokeDragging = true
 			pass
+
+
+func _on_gas_up(gasValue: Variant) -> void:
+	pass # Replace with function body.
