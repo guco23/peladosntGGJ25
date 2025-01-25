@@ -1,15 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://bv3dqxxp8fe1"]
+[gd_scene load_steps=8 format=3 uid="uid://bv3dqxxp8fe1"]
 
+[ext_resource type="PackedScene" uid="uid://by8kpetkrl5ra" path="res://prefabs/Mano.tscn" id="1_gt4yd"]
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="2_i4lgy"]
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="3_6bs4c"]
 [ext_resource type="Script" path="res://scripts/ScoreDev.gd" id="4_i44vx"]
 [ext_resource type="PackedScene" uid="uid://lexg22o8obe5" path="res://prefabs/interruptor_y_fondo.tscn" id="4_xr0ex"]
+[ext_resource type="PackedScene" uid="uid://bibfm8xlyhlku" path="res://prefabs/EventManager.tscn" id="5_fibx3"]
+[ext_resource type="PackedScene" uid="uid://ck6i8hoinifp2" path="res://prefabs/frisby_spawner.tscn" id="5_tuv5d"]
 
 [node name="samu_scene2" type="Node2D"]
 
 [node name="Lata" parent="." instance=ExtResource("2_i4lgy")]
 position = Vector2(552, 544)
 continuous_cd = 2
+angleUpApertura = 30.0
+velocityColisionModule = 600.0
+minCollisonAngleVel = 0.3
+maxCollisonAngleVel = 1.0
+timeToFly = 0.1
+postColisionInvencibleTime = 1.0
 
 [node name="Muro_samu" parent="." instance=ExtResource("3_6bs4c")]
 position = Vector2(569, 619)
@@ -22,5 +31,18 @@ script = ExtResource("4_i44vx")
 
 [node name="Interruptor y fondo" parent="." instance=ExtResource("4_xr0ex")]
 position = Vector2(-6, 0)
+
+[node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner") instance=ExtResource("5_fibx3")]
+manoWeight = 0
+playerRef = NodePath("../Lata")
+mano = NodePath("../Mano")
+frisbeeSpawner = NodePath("../FrisbySpawner")
+
+[node name="FrisbySpawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_tuv5d")]
+target = NodePath("../Lata")
+
+[node name="Mano" parent="." node_paths=PackedStringArray("canRef") instance=ExtResource("1_gt4yd")]
+position = Vector2(1131, 530)
+canRef = NodePath("../Lata")
 
 [connection signal="gasUp" from="Lata" to="Label" method="_on_lata_gas_up"]
