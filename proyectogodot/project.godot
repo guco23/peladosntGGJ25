@@ -35,7 +35,9 @@ click={
 
 2d_physics/layer_2="Limites"
 2d_physics/layer_3="Objetos "
-2d_physics/layer_4="Lata"
+2d_physics/layer_4="LataTrigger"
+2d_physics/layer_5="Burbujas"
+2d_physics/layer_6="LataFisica"
 
 [rendering]
 

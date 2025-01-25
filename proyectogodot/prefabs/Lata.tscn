@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1vst1fcr6m32"]
+[gd_scene load_steps=6 format=3 uid="uid://d1vst1fcr6m32"]
 
 [ext_resource type="Script" path="res://scripts/lata.gd" id="1_pv43h"]
 [ext_resource type="Texture2D" uid="uid://bhaafilxjo2h0" path="res://sprites/Coke.png" id="2_7mm1n"]
-[ext_resource type="Script" path="res://buble_spawner.gd" id="3_vp8yl"]
+[ext_resource type="Script" path="res://scripts/buble_spawner.gd" id="3_vp8yl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7su64"]
 size = Vector2(62, 96)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2mwn"]
+size = Vector2(62, 96)
+
 [node name="Lata" type="RigidBody2D"]
-collision_layer = 8
-collision_mask = 14
+collision_layer = 32
+collision_mask = 2
 input_pickable = true
 mass = 0.35
 script = ExtResource("1_pv43h")
@@ -25,8 +28,16 @@ shape = SubResource("RectangleShape2D_7su64")
 position = Vector2(0, -42)
 script = ExtResource("3_vp8yl")
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_k2mwn")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="gasUp" from="." to="BubleSpawner" method="_on_lata_gas_up"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_trigger_enter"]
