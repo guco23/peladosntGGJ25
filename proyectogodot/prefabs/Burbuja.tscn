@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://deq6nd4ner30v"]
+[gd_scene load_steps=4 format=3 uid="uid://b5d8yijrsq1jh"]
 
 [ext_resource type="Script" path="res://scripts/burbuja.gd" id="1_ko1rn"]
 [ext_resource type="Texture2D" uid="uid://cjqcm23t60ys6" path="res://icon.svg" id="1_wgwoo"]

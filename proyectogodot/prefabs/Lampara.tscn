@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj0244ww4qnc2"]
+
+[ext_resource type="Script" path="res://prefabs/Lampara.gd" id="1_6oag7"]
+[ext_resource type="Texture2D" uid="uid://bm3r1w15rof0j" path="res://sprites/Icono.png" id="1_gsj54"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_thl4s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3hhi"]
+
+[node name="Techocosa" type="StaticBody2D"]
+collision_layer = 0
+script = ExtResource("1_6oag7")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("../Lampara")
+motor_target_velocity = 3.49066
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -45.96)
+shape = SubResource("CircleShape2D_thl4s")
+disabled = true
+
+[node name="Lampara" type="RigidBody2D" parent="."]
+position = Vector2(0, 46.115)
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lampara"]
+scale = Vector2(2.23, 2.23)
+shape = SubResource("RectangleShape2D_n3hhi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lampara"]
+texture = ExtResource("1_gsj54")

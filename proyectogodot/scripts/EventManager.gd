@@ -10,6 +10,7 @@ extends Node
 @export var frisbeeWeight : int
 @export var luzWeight : int
 @export var manchaWeight : int
+@export var lamparaWeight : int
 
 @export var playerRef : Node2D
 
@@ -20,6 +21,7 @@ var manchaPref : PackedScene = preload("res://prefabs/Spot.tscn") #El prefab de 
 @export var mano : Node2D #La mano en la escena
 @export var frisbeeSpawner : Node2D
 @export var interruptorYfondo : Node2D
+@export var lampara : Node2D
 
 var rand = RandomNumberGenerator.new()
 var totalWeight : int
@@ -40,8 +42,8 @@ func _ready() -> void:
 	frisbeeWeight += manoWeight
 	luzWeight += frisbeeWeight
 	manchaWeight += luzWeight
-	totalWeight = manchaWeight
-	print_debug(str(moscaWeight) + " " + str(discoWeight) + " " + str(manoWeight) + " " + str(frisbeeWeight) + " " + str(luzWeight) + " " + str(manchaWeight))
+	lamparaWeight += manchaWeight
+	totalWeight = lamparaWeight
 	get_child(0).start(startTime)
 	pass
 
@@ -67,6 +69,8 @@ func LaunchEvent():
 		ApagaLuz()
 	elif val <= manchaWeight:
 		Manchar()
+	elif val <= lamparaWeight:
+		TiraLampara()
 	#Selecciona aleatoriamente un evento de la lista de eventos
 
 func GeneraMosca():
@@ -94,5 +98,7 @@ func Manchar():
 	var x = rand.randf_range(0, get_viewport().size.x)
 	var y = rand.randf_range(0, get_viewport().size.y)
 	mancha.position = Vector2(x,y)
-
 	add_sibling(mancha)
+
+func TiraLampara():
+	lampara.Fall()
