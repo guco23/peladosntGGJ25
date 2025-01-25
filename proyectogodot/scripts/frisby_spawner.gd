@@ -62,7 +62,4 @@ func _process(delta: float) -> void:
 	if spawnTimeCounter > spawnTime:
 		spawnFrisby()
 		calcultateNewSpawnTime()
-		
-		
-	
 	pass

@@ -19,8 +19,6 @@ func launchPunch()->void:
 	tw.tween_property(self,"position",canRef.position+Vector2(100,0),anticipationTime)
 	tw.tween_callback(punch)
 
-
-
 func punch():
 	var twee = get_tree().create_tween()
 	twee.tween_property(self,"position",canRef.position+Vector2(-100,-60),0.2)

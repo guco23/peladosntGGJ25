@@ -6,7 +6,6 @@ var agitation : int
 
 var isCokeDragging: bool = false
 
-
 func _ready() -> void:
 	score = 0
 	difficulty = 0
