@@ -26,7 +26,6 @@ var lastAngularVelocity:float = 0
 var lastPos:Vector2 
 var lastDragginTime:float
 
-
 #variables para volar la lata
 
 #es el angulo random en que salta hacia arriba, 180 todo el arco superior completo, 360 puede ir hacia abajo  
@@ -60,6 +59,8 @@ var linealVelocityToApply:Vector2
 var angularVelocityToApply:float
 
 
+#SonidoCosas
+var audi:AudioStreamPlayer2D
 
 signal gasUp (gasValue)
 
@@ -74,6 +75,7 @@ func _ready() -> void:
 	
 	lastPos = position
 	lastDragginTime = Time.get_ticks_msec()
+	audi = get_node("AudioStreamPlayer2D")
 
 
 #soltar la lata
@@ -239,7 +241,7 @@ func _on_trigger_enter(body: Node2D) -> void:
 	if body is CollisionObject2D:
 		if isInLayer(body.collision_layer,3):
 			#mandar la lata a tomar por culo
-			a_volar(body)
+			a_volar(body) 
 			
 	
 	pass # Replace with function body.
@@ -252,7 +254,7 @@ func a_volar(body:Node2D):
 	
 	print_debug("aqui")
 	releaseCan()
-	
+	audi.play()
 	var angle = randf_range(-angleUpApertura/2,angleUpApertura/2)
 	
 	var dirX = sin(deg_to_rad(angle))
