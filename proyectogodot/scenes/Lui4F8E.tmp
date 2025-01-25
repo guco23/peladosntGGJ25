@@ -1,15 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cih1ywa17l4wl"]
+[gd_scene load_steps=5 format=3 uid="uid://cih1ywa17l4wl"]
 
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="1_hkc8r"]
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="2_vj708"]
 [ext_resource type="PackedScene" uid="uid://nvosr181q3fo" path="res://prefabs/Mosca.tscn" id="3_han1k"]
 [ext_resource type="Script" path="res://scenes/ScoreDev.gd" id="4_7o36h"]
-[ext_resource type="PackedScene" path="res://prefabs/frisby_spawner.tscn" id="5_675vu"]
 
 [node name="LuisTest" type="Node2D"]
 
 [node name="Lata" parent="." instance=ExtResource("1_hkc8r")]
-position = Vector2(552, 544)
+position = Vector2(552, 316)
 
 [node name="Muro_samu" parent="." instance=ExtResource("2_vj708")]
 position = Vector2(569, 619)
@@ -24,9 +23,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Adiossx"
 script = ExtResource("4_7o36h")
-
-[node name="FrisbySpawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_675vu")]
-target = NodePath("../Lata")
 
 [connection signal="gasUp" from="Lata" to="Label" method="_on_lata_gas_up"]
 [connection signal="input_event" from="Mosca" to="Mosca" method="_on_input_event"]
