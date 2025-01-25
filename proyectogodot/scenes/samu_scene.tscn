@@ -35,6 +35,7 @@ targetNode = NodePath("../Disco")
 [node name="FrisbySpawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_0i2dt")]
 target = NodePath("../Disco")
 minSpawnTime = 1.0
+velocityModule = 500.0
 
 [node name="Lata" parent="." instance=ExtResource("5_mip2o")]
 position = Vector2(717, 377)
