@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://nvosr181q3fo" path="res://prefabs/Mosca.tscn" id="3_han1k"]
 [ext_resource type="Script" path="res://scripts/ScoreDev.gd" id="4_7o36h"]
 [ext_resource type="PackedScene" uid="uid://ck6i8hoinifp2" path="res://prefabs/frisby_spawner.tscn" id="5_675vu"]
-[ext_resource type="PackedScene" uid="uid://by8kpetkrl5ra" path="res://prefabs/Mano.tscn" id="6_uwo2v"]
+[ext_resource type="PackedScene" uid="uid://dxiexdiyj7w6e" path="res://prefabs/Mano.tscn" id="6_uwo2v"]
 
 [node name="LuisTest" type="Node2D"]
 
@@ -37,5 +37,3 @@ playerRef = NodePath("../Lata")
 moscaSpeed = 500.0
 variablity = 100.0
 offset = Vector2(0, -10)
-
-[connection signal="gasUp" from="Lata" to="Label" method="_on_lata_gas_up"]
