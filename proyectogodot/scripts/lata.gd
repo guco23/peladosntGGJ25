@@ -36,7 +36,11 @@ func _input(event):
 
 func _physics_process(delta: float) -> void:
 	if(is_draggin):
-		global_transform.origin = get_global_mouse_position()
+		var posX = clamp(get_global_mouse_position().x,0,get_viewport().size.x)
+		var posY = clamp(get_global_mouse_position().y,0,get_viewport().size.y)
+			
+		global_transform.origin = Vector2(posX,posY)
+		
 	if(abs(angular_velocity) > 0.4 || (!is_draggin && linear_velocity.length() > 5)):
 		#print_debug("angular velocity:", angular_velocity," lineal velocity: ",linear_velocity)
 		gasVal+= abs(angular_velocity)+linear_velocity.length()*0.001
