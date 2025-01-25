@@ -1,4 +1,10 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://d18abi4u8tur3"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://0hcnqsvxcr3y"]
+
+[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_63ve4"]
+resource_name = "EQ"
+band_db/32_hz = 9.2
+band_db/3200_hz = -12.9
+band_db/10000_hz = -21.5
 
 [resource]
 bus/1/name = &"SFX"
@@ -7,3 +13,5 @@ bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = 0.0
 bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectEQ_63ve4")
+bus/1/effect/0/enabled = true

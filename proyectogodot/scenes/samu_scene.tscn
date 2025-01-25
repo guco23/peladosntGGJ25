@@ -43,14 +43,6 @@ velocityModule = 500.0
 [node name="Lata" parent="." instance=ExtResource("5_mip2o")]
 position = Vector2(717, 377)
 collision_mask = 2
-mode = 0
-releaseCanMinAngularVelocity = 0.3
-releaseCanMaxAngularVelocity = 1.0
-lataDragginLinealVelUmbral = 4.0
-lataMovingLinealVelUmbral = 5.0
-lataMovingAngularVelUmbral = 0.4
-timeToFly = 0.0
-justPickedInvencibleTime = 0.0
 
 [node name="FondoNegro" parent="." instance=ExtResource("6_3fw6h")]
 visible = false
