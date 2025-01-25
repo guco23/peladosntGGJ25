@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bv3dqxxp8fe1"]
+[gd_scene load_steps=10 format=3 uid="uid://bv3dqxxp8fe1"]
 
 [ext_resource type="PackedScene" uid="uid://by8kpetkrl5ra" path="res://prefabs/Mano.tscn" id="1_gt4yd"]
+[ext_resource type="Texture2D" uid="uid://van3b883d8iu" path="res://sprites/Fondo.png" id="1_p3403"]
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="2_i4lgy"]
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="3_6bs4c"]
 [ext_resource type="Script" path="res://scripts/ScoreDev.gd" id="4_i44vx"]
@@ -11,15 +12,33 @@
 
 [node name="samu_scene2" type="Node2D"]
 
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(579, 324)
+scale = Vector2(0.5996, 0.5996)
+texture = ExtResource("1_p3403")
+
+[node name="Muros" type="Node2D" parent="."]
+
+[node name="Muro_samu" parent="Muros" instance=ExtResource("3_6bs4c")]
+position = Vector2(569, 619)
+
+[node name="Muro_samu2" parent="Muros" instance=ExtResource("3_6bs4c")]
+position = Vector2(569, -25)
+
+[node name="Muro_samu3" parent="Muros" instance=ExtResource("3_6bs4c")]
+position = Vector2(1177, 249)
+rotation = 1.5708
+
+[node name="Muro_samu4" parent="Muros" instance=ExtResource("3_6bs4c")]
+position = Vector2(-27, 249)
+rotation = 1.5708
+
 [node name="Lata" parent="." instance=ExtResource("2_i4lgy")]
 position = Vector2(552, 544)
 continuous_cd = 2
 minCollisonAngleVel = 4.0
 maxCollisonAngleVel = 8.0
 timeToFly = 0.1
-
-[node name="Muro_samu" parent="." instance=ExtResource("3_6bs4c")]
-position = Vector2(569, 619)
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
