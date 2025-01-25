@@ -40,7 +40,7 @@ func spawnFrisby():
 	
 	add_child(newFrisby)
 	
-	print_debug("frisby instanciado")
+	#print_debug("frisby instanciado")
 	
 	pass
 	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfy3iboxow3k4"]
 
-[ext_resource type="Texture2D" uid="uid://cjqcm23t60ys6" path="res://icon.svg" id="1_7n3od"]
 [ext_resource type="Script" path="res://scripts/discoController.gd" id="1_kaydk"]
+[ext_resource type="Texture2D" uid="uid://c6vrakgk6ipxq" path="res://sprites/dvd.png" id="2_hynbj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1ti8x"]
 friction = 0.0
@@ -11,10 +11,11 @@ bounce = 1.0
 radius = 83.6754
 
 [node name="Disco" type="RigidBody2D"]
-scale = Vector2(1.00404, 1)
 collision_layer = 4
 collision_mask = 10
 physics_material_override = SubResource("PhysicsMaterial_1ti8x")
+contact_monitor = true
+max_contacts_reported = 1
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_kaydk")
@@ -24,5 +25,8 @@ position = Vector2(0, -0.5)
 shape = SubResource("CircleShape2D_16ctf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-texture = ExtResource("1_7n3od")
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("2_hynbj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

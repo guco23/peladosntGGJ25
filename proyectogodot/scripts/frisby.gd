@@ -21,7 +21,7 @@ func _ready() -> void:
 	
 	linear_velocity = direction * velocityModule
 	
-	print_debug("Direction:",direction)
+	#print_debug("Direction:",direction)
 	
 	pass # Replace with function body.
 

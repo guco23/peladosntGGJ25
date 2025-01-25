@@ -32,3 +32,35 @@ func _process(delta: float) -> void:
 	
 	
 	pass
+
+
+func isInLayer(layerBody:int, layerTarget:int) -> bool:
+	
+	#print_debug("estoy aqui", layerBody,layerTarget)
+	
+	if layerBody & (1 << (layerTarget-1)):
+		return true
+	else:
+		return false
+
+func getRandomColor()->Color:
+	
+	return Color(randi_range(0,1),randi_range(0,1),randi_range(0,1),1)
+	
+	
+
+
+func _on_body_entered(body: Node) -> void:
+	if body is CollisionObject2D:
+		if isInLayer(body.collision_layer,2):
+			
+			var lastColor = $Sprite2D.modulate
+			var nextColor = getRandomColor()
+			
+			while nextColor == lastColor or nextColor == Color(0,0,0,1) or nextColor == Color(1,1,1,1):
+				nextColor = getRandomColor()
+			
+			$Sprite2D.modulate = nextColor
+	
+	
+	pass # Replace with function body.

@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		global_transform.origin = get_global_mouse_position()
 		
 	if(abs(angular_velocity) > 0.4 || (!is_draggin && linear_velocity.length() > 5)):
-		print_debug("angular velocity:", angular_velocity," lineal velocity: ",linear_velocity)
+		#print_debug("angular velocity:", angular_velocity," lineal velocity: ",linear_velocity)
 		gasVal+= abs(angular_velocity)+linear_velocity.length()*0.001
 		gasUp.emit(gasVal)
 
