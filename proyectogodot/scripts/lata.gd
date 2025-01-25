@@ -152,3 +152,38 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 func _on_gas_up(gasValue: Variant) -> void:
 	pass # Replace with function body.
+
+
+
+
+
+
+
+
+func isInLayer(layerBody:int, layerTarget:int) -> bool:
+	
+	#print_debug("estoy aqui", layerBody,layerTarget)
+	
+	if layerBody & (1 << (layerTarget-1)):
+		return true
+	else:
+		return false
+
+#cuando el trigger 2d detecta collision
+func _on_trigger_enter(body: Node2D) -> void:
+	
+	if body is CollisionObject2D:
+		if isInLayer(body.collision_layer,3):
+			#mandar la lata a tomar por culo
+			a_volar(body)
+	
+	pass # Replace with function body.
+
+
+func a_volar(body:Node2D):
+	
+	print_debug("aqui")
+	releaseCan()
+	linear_velocity += Vector2(0,-500)
+	
+	pass
