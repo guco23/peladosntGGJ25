@@ -20,7 +20,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if(canStart and event.pressed):
 			anim.play()
-	pass # Replace with function body.
 
 
 func _on_body_exited(body: Node2D) -> void:
@@ -31,4 +30,4 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_sprite_2d_animation_finished() -> void:
 	#Cambiar de escena
-	pass # Replace with function body.
+	GameManager.startGame()

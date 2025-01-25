@@ -1,34 +1,64 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj0244ww4qnc2"]
+[gd_scene load_steps=10 format=3 uid="uid://dj0244ww4qnc2"]
 
-[ext_resource type="Script" path="res://prefabs/Lampara.gd" id="1_6oag7"]
-[ext_resource type="Texture2D" uid="uid://bm3r1w15rof0j" path="res://sprites/Icono.png" id="1_gsj54"]
+[ext_resource type="Texture2D" uid="uid://botumk4fqi4qa" path="res://sprites/Lampara.png" id="1_l0cxj"]
+[ext_resource type="Script" path="res://scripts/Lampara.gd" id="1_q2i1t"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_thl4s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm2ff"]
+atlas = ExtResource("1_l0cxj")
+region = Rect2(0, 0, 50, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3hhi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sxq1"]
+atlas = ExtResource("1_l0cxj")
+region = Rect2(50, 0, 50, 32)
 
-[node name="Techocosa" type="StaticBody2D"]
-collision_layer = 0
-script = ExtResource("1_6oag7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7cca"]
+atlas = ExtResource("1_l0cxj")
+region = Rect2(100, 0, 50, 32)
 
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
-node_a = NodePath("..")
-node_b = NodePath("../Lampara")
-motor_target_velocity = 3.49066
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1dos"]
+atlas = ExtResource("1_l0cxj")
+region = Rect2(150, 0, 50, 32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -45.96)
-shape = SubResource("CircleShape2D_thl4s")
-disabled = true
+[sub_resource type="AtlasTexture" id="AtlasTexture_umgqm"]
+atlas = ExtResource("1_l0cxj")
+region = Rect2(200, 0, 50, 32)
 
-[node name="Lampara" type="RigidBody2D" parent="."]
-position = Vector2(0, 46.115)
+[sub_resource type="SpriteFrames" id="SpriteFrames_wmbik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm2ff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sxq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7cca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1dos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umgqm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0uxvu"]
+size = Vector2(178, 110)
+
+[node name="Lampara" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 8
+freeze = true
+script = ExtResource("1_q2i1t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lampara"]
-scale = Vector2(2.23, 2.23)
-shape = SubResource("RectangleShape2D_n3hhi")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(7.165, 7.165)
+sprite_frames = SubResource("SpriteFrames_wmbik")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lampara"]
-texture = ExtResource("1_gsj54")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.825, 1.825)
+shape = SubResource("RectangleShape2D_0uxvu")

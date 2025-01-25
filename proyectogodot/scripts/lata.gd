@@ -61,7 +61,6 @@ var angularVelocityToApply:float
 #Animacion de la lata
 var anim:AnimatedSprite2D
 
-
 #SonidoCosas
 var audi:AudioStreamPlayer2D
 
@@ -200,7 +199,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 #Esto hay que parametrizarlo un poco para que quede elegante
 func _on_gas_up(gasValue: Variant) -> void:
-	if(gasValue>GameManager.gasThreshold||gasValue < GameManager.gasThreshold-1200):
+	if(gasValue < GameManager.gasThreshold-1200):
 		#frame inicial
 		anim.frame =0
 	elif gasValue<GameManager.gasThreshold-1000:
@@ -209,6 +208,8 @@ func _on_gas_up(gasValue: Variant) -> void:
 	elif gasValue<GameManager.gasThreshold-500:
 		#frame 3
 		anim.frame = 2
+	elif gasValue > GameManager.gasThreshold:
+		GameManager.lost()
 	pass # Replace with function body.
 
 

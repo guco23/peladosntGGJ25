@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bfy3iboxow3k4" path="res://prefabs/disco.tscn" id="2_mlk18"]
 [ext_resource type="PackedScene" uid="uid://ck6i8hoinifp2" path="res://prefabs/frisby_spawner.tscn" id="4_0i2dt"]
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="5_mip2o"]
-[ext_resource type="PackedScene" uid="uid://c2vu6lki3c24f" path="res://prefabs/fondo_negro.tscn" id="6_3fw6h"]
-[ext_resource type="PackedScene" uid="uid://bdxf4x40xin7l" path="res://prefabs/interruptor.tscn" id="7_blpky"]
-[ext_resource type="PackedScene" uid="uid://b4nhlus0jhi6e" path="res://prefabs/lata_counter.tscn" id="8_14its"]
+[ext_resource type="PackedScene" path="res://prefabs/fondo_negro.tscn" id="6_3fw6h"]
+[ext_resource type="PackedScene" path="res://prefabs/interruptor.tscn" id="7_blpky"]
+[ext_resource type="PackedScene" path="res://prefabs/lata_counter.tscn" id="8_14its"]
 
 [node name="SamuScene" type="Node2D"]
 
