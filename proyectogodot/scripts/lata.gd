@@ -45,6 +45,8 @@ var lastDragginTime:float
 #tiempo que es invencible la lata despues de chocar
 @export var postColisionInvencibleTime:float 
 
+var invencibleTimeCounter:float
+
 #tiempo que es invencible la lata nada mas cogerla, opcional
 @export var justPickedInvencibleTime:float 
 
@@ -188,7 +190,14 @@ func _on_gas_up(gasValue: Variant) -> void:
 
 
 
-
+func _process(delta: float) -> void:
+	
+	if invencible:
+		invencibleTimeCounter += delta
+		if invencibleTimeCounter > postColisionInvencibleTime:
+			invencible = false
+			invencibleTimeCounter = 0
+			
 
 
 
@@ -215,6 +224,8 @@ func _on_trigger_enter(body: Node2D) -> void:
 
 func a_volar(body:Node2D):
 	
+	if invencible: return
+	
 	print_debug("aqui")
 	releaseCan()
 	
@@ -229,5 +240,8 @@ func a_volar(body:Node2D):
 	linear_velocity += dir * velocityColisionModule
 	angular_velocity += angleVel
 	
+	
+	invencible = true
+	invencibleTimeCounter = 0
 	
 	pass
