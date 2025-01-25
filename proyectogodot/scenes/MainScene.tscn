@@ -1,14 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2e0c82hig2o8"]
+[gd_scene load_steps=10 format=3 uid="uid://buhxipay20mbe"]
 
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="1_f16cr"]
 [ext_resource type="PackedScene" uid="uid://bibfm8xlyhlku" path="res://prefabs/EventManager.tscn" id="1_ycih3"]
 [ext_resource type="Texture2D" uid="uid://van3b883d8iu" path="res://sprites/Fondo.png" id="2_5gtwk"]
-[ext_resource type="PackedScene" path="res://prefabs/frisby_spawner.tscn" id="2_di8w1"]
+[ext_resource type="PackedScene" uid="uid://ck6i8hoinifp2" path="res://prefabs/frisby_spawner.tscn" id="2_di8w1"]
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="3_7ak5f"]
 [ext_resource type="PackedScene" uid="uid://by8kpetkrl5ra" path="res://prefabs/Mano.tscn" id="5_7t18m"]
 [ext_resource type="PackedScene" uid="uid://lexg22o8obe5" path="res://prefabs/interruptor_y_fondo.tscn" id="6_tf5qs"]
 [ext_resource type="PackedScene" uid="uid://dj0244ww4qnc2" path="res://prefabs/Lampara.tscn" id="8_gcgv2"]
-[ext_resource type="Texture2D" uid="uid://b7230ff0fyl06" path="res://sprites/GameOver.png" id="9_rv77v"]
+[ext_resource type="Texture2D" uid="uid://b7230ff0fyl06" path="res://sprites/GameOver.png" id="9_th56h"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -24,8 +24,8 @@ manoWeight = 5
 frisbeeWeight = 4
 luzWeight = 2
 manchaWeight = 3
-lamparaWeight = 1
-ovniWeight = 4
+lamparaWeight = 111
+ovniWeight = 1
 playerRef = NodePath("../Lata")
 mano = NodePath("../Mano")
 frisbeeSpawner = NodePath("../FrisbySpawner")
@@ -51,7 +51,6 @@ scale = Vector2(-2.66258, -0.197115)
 
 [node name="StaticBody2D" parent="Muros/Mesa" index="0"]
 collision_layer = 64
-collision_mask = 24
 
 [node name="Mesa2" parent="Muros" instance=ExtResource("1_f16cr")]
 position = Vector2(1022, 537)
@@ -59,14 +58,13 @@ scale = Vector2(-1.22258, -1.74997)
 
 [node name="StaticBody2D" parent="Muros/Mesa2" index="0"]
 collision_layer = 64
-collision_mask = 24
 
 [node name="Muro_samu3" parent="Muros" instance=ExtResource("1_f16cr")]
 position = Vector2(572, -28)
 
 [node name="Lata" parent="." node_paths=PackedStringArray("gameOverSprite") instance=ExtResource("3_7ak5f")]
 position = Vector2(226, 320)
-gameOverSprite = NodePath("../GameOverSp")
+gameOverSprite = NodePath("../GameOver")
 
 [node name="Mano" parent="." node_paths=PackedStringArray("canRef") instance=ExtResource("5_7t18m")]
 position = Vector2(1212, 433)
@@ -81,13 +79,12 @@ position = Vector2(54, 1)
 
 [node name="Lampara" parent="." instance=ExtResource("8_gcgv2")]
 position = Vector2(438, 103)
-collision_mask = 40
 
-[node name="GameOverSp" type="Sprite2D" parent="."]
+[node name="GameOver" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(561, 308)
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("9_rv77v")
+position = Vector2(586, 304)
+scale = Vector2(1.695, 1.695)
+texture = ExtResource("9_th56h")
 
 [editable path="Muros/Mesa"]
 [editable path="Muros/Mesa2"]
