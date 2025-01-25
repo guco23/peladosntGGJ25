@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/lata.gd" id="1_pv43h"]
 [ext_resource type="Texture2D" uid="uid://bhaafilxjo2h0" path="res://sprites/Coke.png" id="2_7mm1n"]
-[ext_resource type="Script" path="res://buble_spawner.gd" id="3_vp8yl"]
+[ext_resource type="Script" path="res://scripts/buble_spawner.gd" id="3_vp8yl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7su64"]
 size = Vector2(62, 96)

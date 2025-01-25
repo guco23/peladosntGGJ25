@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtpbaxnldcqu0"]
+[gd_scene load_steps=9 format=3 uid="uid://dtpbaxnldcqu0"]
 
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="1_u8ary"]
 [ext_resource type="PackedScene" uid="uid://b1s2r1mbrmwu7" path="res://prefabs/frisby.tscn" id="2_d8p35"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="5_mip2o"]
 [ext_resource type="PackedScene" uid="uid://c2vu6lki3c24f" path="res://prefabs/fondo_negro.tscn" id="6_3fw6h"]
 [ext_resource type="PackedScene" uid="uid://bdxf4x40xin7l" path="res://prefabs/interruptor.tscn" id="7_blpky"]
+[ext_resource type="PackedScene" uid="uid://b4nhlus0jhi6e" path="res://prefabs/lata_counter.tscn" id="8_14its"]
 
 [node name="SamuScene" type="Node2D"]
 
@@ -50,3 +51,8 @@ position = Vector2(577, 260)
 [node name="Interruptor" parent="." node_paths=PackedStringArray("fondo") instance=ExtResource("7_blpky")]
 position = Vector2(1047, 349)
 fondo = NodePath("../FondoNegro")
+
+[node name="GasCounter" parent="." instance=ExtResource("8_14its")]
+offset_right = 60.0
+
+[connection signal="gasUp" from="Lata" to="GasCounter" method="_on_lata_gas_up"]
