@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://buhxipay20mbe"]
+[gd_scene load_steps=9 format=3 uid="uid://buhxipay20mbe"]
 
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="1_f16cr"]
 [ext_resource type="PackedScene" uid="uid://bibfm8xlyhlku" path="res://prefabs/EventManager.tscn" id="1_ycih3"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://by8kpetkrl5ra" path="res://prefabs/Mano.tscn" id="5_7t18m"]
 [ext_resource type="PackedScene" uid="uid://lexg22o8obe5" path="res://prefabs/interruptor_y_fondo.tscn" id="6_tf5qs"]
 [ext_resource type="PackedScene" uid="uid://dj0244ww4qnc2" path="res://prefabs/Lampara.tscn" id="8_gcgv2"]
-[ext_resource type="Texture2D" uid="uid://b7230ff0fyl06" path="res://sprites/GameOver.png" id="9_th56h"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -62,9 +61,8 @@ collision_layer = 64
 [node name="Muro_samu3" parent="Muros" instance=ExtResource("1_f16cr")]
 position = Vector2(572, -28)
 
-[node name="Lata" parent="." node_paths=PackedStringArray("gameOverSprite") instance=ExtResource("3_7ak5f")]
+[node name="Lata" parent="." instance=ExtResource("3_7ak5f")]
 position = Vector2(226, 320)
-gameOverSprite = NodePath("../GameOver")
 
 [node name="Mano" parent="." node_paths=PackedStringArray("canRef") instance=ExtResource("5_7t18m")]
 position = Vector2(1212, 433)
@@ -79,12 +77,6 @@ position = Vector2(54, 1)
 
 [node name="Lampara" parent="." instance=ExtResource("8_gcgv2")]
 position = Vector2(438, 103)
-
-[node name="GameOver" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(586, 304)
-scale = Vector2(1.695, 1.695)
-texture = ExtResource("9_th56h")
 
 [editable path="Muros/Mesa"]
 [editable path="Muros/Mesa2"]

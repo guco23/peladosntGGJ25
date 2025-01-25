@@ -112,4 +112,6 @@ func Manchar():
 	#tirar sonido pringue
 
 func TiraLampara():
-	lampara.Fall()
+	
+	if lampara != null:
+		lampara.Fall()
