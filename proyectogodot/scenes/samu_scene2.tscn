@@ -7,19 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://lexg22o8obe5" path="res://prefabs/interruptor_y_fondo.tscn" id="4_xr0ex"]
 [ext_resource type="PackedScene" uid="uid://bibfm8xlyhlku" path="res://prefabs/EventManager.tscn" id="5_fibx3"]
 [ext_resource type="PackedScene" uid="uid://ck6i8hoinifp2" path="res://prefabs/frisby_spawner.tscn" id="5_tuv5d"]
-[ext_resource type="PackedScene" uid="uid://c3h07ovlys7f0" path="res://ovni.tscn" id="8_4iq3f"]
+[ext_resource type="PackedScene" uid="uid://c3h07ovlys7f0" path="res://prefabs/ovni.tscn" id="8_4iq3f"]
 
 [node name="samu_scene2" type="Node2D"]
 
 [node name="Lata" parent="." instance=ExtResource("2_i4lgy")]
 position = Vector2(552, 544)
 continuous_cd = 2
-angleUpApertura = 30.0
-velocityColisionModule = 600.0
 minCollisonAngleVel = 4.0
 maxCollisonAngleVel = 8.0
 timeToFly = 0.1
-postColisionInvencibleTime = 1.0
 
 [node name="Muro_samu" parent="." instance=ExtResource("3_6bs4c")]
 position = Vector2(569, 619)
@@ -53,7 +50,7 @@ canRef = NodePath("../Lata")
 [node name="ovni" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_4iq3f")]
 position = Vector2(427, 142)
 target = NodePath("../Lata")
-nRandomPositions = 3
+nRandomPositions = 1
 timeToShoot = 1.0
 timeToScape = 1.0
 
