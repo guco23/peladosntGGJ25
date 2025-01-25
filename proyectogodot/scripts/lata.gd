@@ -1,13 +1,24 @@
 extends RigidBody2D
 
+#variables drag && drop
 var isPicked : bool
 var isMoused : bool
+
+#valor del gas
 var gasVal: float
 
 enum GasMode {VELOCITY, ACELERATION }
 
 @export var mode:GasMode 
 
+@export var releaseCanAngularVelocity:float = 0.3
+@export var lataDragginLinealVelUmbral:float = 4
+@export var lataMovingLinealVelUmbral:float = 5
+@export var lataMovingAngularVelUmbral:float = 0.4
+
+
+
+#variables para aceleracion
 var lastLinearVelocity:Vector2 = Vector2(0,0)
 var lastAngularVelocity:float = 0
 var lastPos:Vector2 
@@ -35,14 +46,14 @@ func releaseCan():
 	GameManager.isCokeDragging = false
 	#ajustar velocidades 
 	linear_velocity = Vector2.ZERO
-	angular_velocity = 0.3
+	angular_velocity = releaseCanAngularVelocity
 
 
 #calculo del gas si estas dragueando la lata, solo para modo VELOCITY
 func onLataDragging(event,delta:float):
 	if mode == GasMode.VELOCITY:
 		#calculo del gas
-		if event.velocity.length()/200 > 4:
+		if event.velocity.length()/200 > lataDragginLinealVelUmbral:
 			gasVal+= event.velocity.length()/200
 			gasUp.emit(gasVal)
 	elif  mode == GasMode.ACELERATION:
@@ -61,7 +72,7 @@ func onLataDragging(event,delta:float):
 #calculo del gas si no estas draguenado la lata 
 func onLataMoving(delta:float):
 	if mode == GasMode.VELOCITY:
-		if(abs(angular_velocity) > 0.4 || (!GameManager.isCokeDragging && linear_velocity.length() > 5)):
+		if(abs(angular_velocity) > lataMovingAngularVelUmbral || (!GameManager.isCokeDragging && linear_velocity.length() > lataMovingLinealVelUmbral)):
 			#print_debug("angular velocity:", angular_velocity," lineal velocity: ",linear_velocity)
 			gasVal+= abs(angular_velocity)+linear_velocity.length()*0.001
 	elif mode == GasMode.ACELERATION and !GameManager.isCokeDragging:
@@ -122,8 +133,8 @@ func _on_body_entered(body: Node) -> void:
 
 
 func _on_mouse_entered() -> void:
-	isMoused = true
 	#print_debug("mouse entered")
+	isMoused = true
 
 
 func _on_mouse_exited() -> void:
