@@ -236,18 +236,12 @@ func _process(delta: float) -> void:
 			invencible = true
 			timeToFlyCounter = 0
 			invencibleTimeCounter = 0
-			
-	
-	
+
 	if invencible:
 		invencibleTimeCounter += delta
 		if invencibleTimeCounter > postColisionInvencibleTime:
 			invencible = false
 			invencibleTimeCounter = 0
-			
-
-
-
 
 func isInLayer(layerBody:int, layerTarget:int) -> bool:
 	
@@ -260,16 +254,10 @@ func isInLayer(layerBody:int, layerTarget:int) -> bool:
 
 #cuando el trigger 2d detecta collision
 func _on_trigger_enter(body: Node2D) -> void:
-	
 	if body is CollisionObject2D:
 		if isInLayer(body.collision_layer,3):
 			#mandar la lata a tomar por culo
 			a_volar(body) 
-			
-
-	
-	pass # Replace with function body.
-
 
 func a_volar(body:Node2D):
 	
