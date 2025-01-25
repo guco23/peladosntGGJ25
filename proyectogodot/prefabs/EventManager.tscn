@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bibfm8xlyhlku"]
+[gd_scene load_steps=3 format=3 uid="uid://bibfm8xlyhlku"]
 
 [ext_resource type="Script" path="res://scripts/EventManager.gd" id="1_2j1a4"]
+[ext_resource type="AudioStream" uid="uid://bd8v4xt58hk4" path="res://Sound/switch.wav" id="2_c1y4b"]
 
 [node name="EventManager" type="Node2D"]
 script = ExtResource("1_2j1a4")
@@ -9,5 +10,9 @@ startTime = 2.0
 reductonFactor = 0.5
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="switch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_c1y4b")
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="TimeEvent"]
