@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdxf4x40xin7l"]
+[gd_scene load_steps=5 format=3 uid="uid://bdxf4x40xin7l"]
 
 [ext_resource type="Texture2D" uid="uid://cjqcm23t60ys6" path="res://icon.svg" id="1_54o7m"]
 [ext_resource type="Script" path="res://scripts/interruptor.gd" id="2_0mskx"]
+[ext_resource type="AudioStream" uid="uid://bd8v4xt58hk4" path="res://Sound/switch.wav" id="3_kq5p6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_niy6a"]
 size = Vector2(128, 129)
@@ -17,5 +18,9 @@ script = ExtResource("2_0mskx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_niy6a")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kq5p6")
+bus = &"SFX"
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

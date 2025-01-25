@@ -200,7 +200,7 @@ func goRandomPosition():
 	
 	setVelocityToDir()
 
-	
 
-	
-	
+func _on_audio_stream_player_2d_finished() -> void:
+	get_node("AudioStreamPlayer2D").play()
+	pass # Replace with function body.

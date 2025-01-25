@@ -101,6 +101,7 @@ func LlamaFrisbee():
 
 func ApagaLuz():
 	interruptorYfondo.get_child(0).apagarLuz()
+	get_node("switch").play()
 
 func Manchar():
 	var mancha = manchaPref.instantiate()
@@ -108,6 +109,7 @@ func Manchar():
 	var y = rand.randf_range(0, get_viewport().size.y)
 	mancha.position = Vector2(x,y)
 	add_sibling(mancha)
+	#tirar sonido pringue
 
 func TiraLampara():
 	lampara.Fall()

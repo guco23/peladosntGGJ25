@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
+		get_node("SquashBug").play()
 		queue_free()
 
 

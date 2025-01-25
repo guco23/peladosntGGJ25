@@ -50,9 +50,11 @@ animations = [{
 size = Vector2(179.411, 40.3767)
 
 [node name="Lampara" type="RigidBody2D"]
-collision_layer = 4
+collision_layer = 132
 collision_mask = 10
 freeze = true
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_q2i1t")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
@@ -63,3 +65,5 @@ sprite_frames = SubResource("SpriteFrames_wmbik")
 position = Vector2(-1.2875, 68.8438)
 scale = Vector2(1.825, 1.825)
 shape = SubResource("RectangleShape2D_0uxvu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
