@@ -64,6 +64,9 @@ var anim:AnimatedSprite2D
 #SonidoCosas
 var audi:AudioStreamPlayer2D
 
+var shaker : Node2D
+@export var gameOverSprite : Node2D
+
 signal gasUp (gasValue)
 
 # Called when the node enters the scene tree for the first time.
@@ -79,6 +82,7 @@ func _ready() -> void:
 	lastDragginTime = Time.get_ticks_msec()
 	audi = get_node("AudioStreamPlayer2D")
 	anim = get_node("Sprite2D")
+	shaker = get_node("ShakerComponent2D")
 
 #soltar la lata
 func releaseCan():
@@ -215,8 +219,8 @@ func _on_gas_up(gasValue: Variant) -> void:
 		anim.frame = 2
 	elif gasValue > GameManager.gasThreshold:
 		GameManager.lost()
-	pass # Replace with function body.
-
+		gameOverSprite.visible = true
+	shaker.intensity = gasValue / GameManager.gasThreshold * 7
 
 
 func _process(delta: float) -> void:
