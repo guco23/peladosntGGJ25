@@ -10,6 +10,9 @@ enum GasMode {VELOCITY, ACELERATION }
 
 var lastLinearVelocity:Vector2 = Vector2(0,0)
 var lastAngularVelocity:float = 0
+var lastPos:Vector2 
+var lastDragginTime:float
+
 
 signal gasUp (gasValue)
 
@@ -21,6 +24,9 @@ func _ready() -> void:
 	isMoused = false
 	contact_monitor = true
 	max_contacts_reported = 1
+	
+	lastPos = position
+	lastDragginTime = Time.get_ticks_msec()
 
 
 #soltar la lata
@@ -33,26 +39,42 @@ func releaseCan():
 
 
 #calculo del gas si estas dragueando la lata, solo para modo VELOCITY
-func onLataDragging(event):
+func onLataDragging(event,delta:float):
 	if mode == GasMode.VELOCITY:
 		#calculo del gas
 		if event.velocity.length()/200 > 4:
 			gasVal+= event.velocity.length()/200
 			gasUp.emit(gasVal)
-			
+	elif  mode == GasMode.ACELERATION:
+		var vel:Vector2 = abs(position- lastPos)/delta
+		var aceleration = abs((lastLinearVelocity - vel)).length()/delta
+		
+		print_debug("acel:",aceleration)
+		
+		gasVal += aceleration
+		
+		lastPos = position
+		lastLinearVelocity = vel
+		
+		
 
-#calculo del gas si no estas draguenado la lata o si el modo es ACELERATION
-func onLataMoving():
+#calculo del gas si no estas draguenado la lata 
+func onLataMoving(delta:float):
 	if mode == GasMode.VELOCITY:
 		if(abs(angular_velocity) > 0.4 || (!GameManager.isCokeDragging && linear_velocity.length() > 5)):
 			#print_debug("angular velocity:", angular_velocity," lineal velocity: ",linear_velocity)
 			gasVal+= abs(angular_velocity)+linear_velocity.length()*0.001
-	elif mode == GasMode.ACELERATION:
+	elif mode == GasMode.ACELERATION and !GameManager.isCokeDragging:
 		#modulo de la aceleracion
 		var acelerationLinear = (lastLinearVelocity - linear_velocity).length()
 		var acelerationAngular = lastAngularVelocity - angular_velocity
 		
-		gasVal += abs(acelerationLinear) + abs(acelerationAngular) 
+		print_debug("no deberia estar aqu")
+		gasVal += (abs(acelerationLinear) + abs(acelerationAngular)) * 0.001
+		
+		lastLinearVelocity = linear_velocity
+		lastAngularVelocity = angular_velocity
+		
 	
 	#en cualquier caso:
 	gasUp.emit(gasVal)
@@ -67,7 +89,13 @@ func _input(event):
 			releaseCan()
 	#si estamos moviendo la lata
 	if event is InputEventMouseMotion and GameManager.isCokeDragging:
-		onLataDragging(event)
+		var currTime = Time.get_ticks_msec()
+		
+		
+		onLataDragging(event,currTime-lastDragginTime)
+		lastDragginTime = currTime
+		
+		
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -81,7 +109,7 @@ func _physics_process(delta: float) -> void:
 			
 		global_transform.origin = Vector2(posX,posY)
 		
-	onLataMoving()
+	onLataMoving(delta)
 
 func _on_body_entered(body: Node) -> void:
 	
