@@ -1,22 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbgp43f5wghmt"]
+[gd_scene load_steps=9 format=3 uid="uid://dbgp43f5wghmt"]
 
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="1_0evsp"]
 [ext_resource type="PackedScene" uid="uid://dxiexdiyj7w6e" path="res://prefabs/Mano.tscn" id="2_f8kvm"]
 [ext_resource type="PackedScene" uid="uid://ck6i8hoinifp2" path="res://prefabs/frisby_spawner.tscn" id="3_ekbbw"]
-[ext_resource type="PackedScene" uid="uid://dgst6daw2v3n5" path="res://prefabs/interruptor_y_fondo.tscn" id="5_ex1xu"]
 [ext_resource type="PackedScene" uid="uid://bibfm8xlyhlku" path="res://prefabs/EventManager.tscn" id="5_qf3io"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrbpg"]
 size = Vector2(1179.5, 91)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0sk2"]
-size = Vector2(116, 300.5)
+size = Vector2(116, 721)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23kdi"]
 size = Vector2(128.125, 740)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm7t1"]
-size = Vector2(527, 91)
+size = Vector2(1124, 91)
 
 [node name="TestScene" type="Node2D"]
 
@@ -31,7 +30,7 @@ shape = SubResource("RectangleShape2D_rrbpg")
 collision_layer = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pared1"]
-position = Vector2(-31, 567.25)
+position = Vector2(-31, 357)
 shape = SubResource("RectangleShape2D_n0sk2")
 
 [node name="Pared2" type="StaticBody2D" parent="."]
@@ -45,7 +44,7 @@ shape = SubResource("RectangleShape2D_23kdi")
 collision_layer = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Techo"]
-position = Vector2(878.5, -21.5)
+position = Vector2(580, -21.5)
 shape = SubResource("RectangleShape2D_mm7t1")
 
 [node name="Mano" parent="." node_paths=PackedStringArray("canRef") instance=ExtResource("2_f8kvm")]
@@ -60,12 +59,8 @@ target = NodePath("../Lata")
 [node name="Lata" parent="." instance=ExtResource("1_0evsp")]
 position = Vector2(483, 376)
 
-[node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner", "interruptorYfondo") instance=ExtResource("5_qf3io")]
-moscaWeight = 1
-manchaWeight = 6
+[node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner") instance=ExtResource("5_qf3io")]
+frisbeeWeight = 1
 playerRef = NodePath("../Lata")
 mano = NodePath("../Mano")
 frisbeeSpawner = NodePath("../FrisbySpawner")
-interruptorYfondo = NodePath("../Interruptor y fondo")
-
-[node name="Interruptor y fondo" parent="." instance=ExtResource("5_ex1xu")]

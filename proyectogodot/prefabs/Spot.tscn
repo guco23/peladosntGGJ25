@@ -1,13 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmtwf8i1schw6"]
+[gd_scene load_steps=10 format=3 uid="uid://6mgmi6bcd07t"]
 
-[ext_resource type="Script" path="res://prefabs/spot.gd" id="1_m58yn"]
-[ext_resource type="Texture2D" uid="uid://cjqcm23t60ys6" path="res://icon.svg" id="1_rqu7v"]
+[ext_resource type="Texture2D" uid="uid://ciam4jqdl1yhl" path="res://Mancha50x50.png" id="1_ii47l"]
+[ext_resource type="Script" path="res://scripts/spot.gd" id="1_k70p6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46i1n"]
+atlas = ExtResource("1_ii47l")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b01u"]
+atlas = ExtResource("1_ii47l")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq08d"]
+atlas = ExtResource("1_ii47l")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aymxm"]
+atlas = ExtResource("1_ii47l")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu0gc"]
+atlas = ExtResource("1_ii47l")
+region = Rect2(0, 0, 50, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f6t50"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_rqu7v")
+"texture": SubResource("AtlasTexture_46i1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b01u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq08d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aymxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu0gc")
 }],
 "loop": true,
 "name": &"default",
@@ -15,14 +47,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdfwa"]
-size = Vector2(200, 200)
+size = Vector2(78, 72)
 
 [node name="Spot" type="Area2D"]
-script = ExtResource("1_m58yn")
+position = Vector2(-4, 6)
+scale = Vector2(4, 4)
+script = ExtResource("1_k70p6")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.54688, 1.54687)
 sprite_frames = SubResource("SpriteFrames_f6t50")
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kdfwa")

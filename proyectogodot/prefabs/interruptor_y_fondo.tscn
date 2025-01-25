@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://lexg22o8obe5"]
+[gd_scene load_steps=3 format=3 uid="uid://dgst6daw2v3n5"]
 
-[ext_resource type="PackedScene" uid="uid://bdxf4x40xin7l" path="res://prefabs/interruptor.tscn" id="1_n8aow"]
-[ext_resource type="PackedScene" uid="uid://c2vu6lki3c24f" path="res://prefabs/fondo_negro.tscn" id="2_ebf12"]
+[ext_resource type="PackedScene" path="res://prefabs/interruptor.tscn" id="1_n8aow"]
+[ext_resource type="PackedScene" path="res://prefabs/fondo_negro.tscn" id="2_ebf12"]
 
 [node name="Interruptor y fondo" type="Node2D"]
 
@@ -9,5 +9,6 @@
 visible = false
 position = Vector2(605, 265)
 
-[node name="Interruptor" parent="." instance=ExtResource("1_n8aow")]
+[node name="Interruptor" parent="." node_paths=PackedStringArray("fondo") instance=ExtResource("1_n8aow")]
 position = Vector2(1040, 318)
+fondo = NodePath("../FondoNegro")
