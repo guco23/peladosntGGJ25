@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dj0244ww4qnc2" path="res://prefabs/Lampara.tscn" id="8_gcgv2"]
 
 [node name="MainScene" type="Node2D"]
+scale = Vector2(1.00689, 1.01794)
 
 [node name="Fondo" type="Sprite2D" parent="."]
 position = Vector2(578, 328)

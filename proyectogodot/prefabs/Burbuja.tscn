@@ -11,11 +11,11 @@ collision_mask = 18
 script = ExtResource("1_ko1rn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(-1.15024, 1.04)
+scale = Vector2(0.84, 0.84)
 texture = ExtResource("2_8b4fh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.72, 0.72)
+scale = Vector2(0.571087, 0.571087)
 shape = SubResource("CircleShape2D_uydhk")
 
 [node name="Timer" type="Timer" parent="."]
