@@ -16,6 +16,7 @@ canRef = NodePath("../Lata")
 
 [node name="Lata" parent="." instance=ExtResource("1_hkc8r")]
 position = Vector2(552, 544)
+continuous_cd = 2
 
 [node name="Muro_samu" parent="." instance=ExtResource("2_vj708")]
 position = Vector2(569, 619)
@@ -33,5 +34,8 @@ target = NodePath("../Lata")
 [node name="Mosca" parent="." node_paths=PackedStringArray("playerRef") instance=ExtResource("3_han1k")]
 position = Vector2(193, 348)
 playerRef = NodePath("../Lata")
+moscaSpeed = 500.0
+variablity = 100.0
+offset = Vector2(0, -10)
 
 [connection signal="gasUp" from="Lata" to="Label" method="_on_lata_gas_up"]

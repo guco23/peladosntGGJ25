@@ -12,6 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	print_debug(get_parent())
+	#print_debug(get_parent())
 	queue_free()
 	pass # Replace with function body.

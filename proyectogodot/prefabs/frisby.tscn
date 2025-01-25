@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1s2r1mbrmwu7"]
+[gd_scene load_steps=4 format=3 uid="uid://bohupdp7wvnhx"]
 
 [ext_resource type="Texture2D" uid="uid://cjqcm23t60ys6" path="res://icon.svg" id="1_6ahm4"]
 [ext_resource type="Script" path="res://scripts/frisby.gd" id="1_ahuek"]
@@ -9,6 +9,7 @@ size = Vector2(116, 8)
 [node name="Frisby" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 8
+mass = 10.0
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
