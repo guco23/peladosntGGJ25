@@ -18,12 +18,17 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 
+
 func _input(event):
 	if event is InputEventMouseButton:
 		if !event.is_pressed():
 			is_draggin = false
 			linear_velocity = Vector2.ZERO
 			angular_velocity = 0.3
+	if event is InputEventMouseMotion and is_draggin:
+		if event.velocity.length()/200 > 4:
+			gasVal+= event.velocity.length()/200
+			gasUp.emit(gasVal)
 	pass
 
 func _physics_process(delta: float) -> void:
