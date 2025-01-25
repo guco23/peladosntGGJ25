@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv3dqxxp8fe1"]
+[gd_scene load_steps=5 format=3 uid="uid://bv3dqxxp8fe1"]
 
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="2_i4lgy"]
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="3_6bs4c"]
 [ext_resource type="Script" path="res://scripts/ScoreDev.gd" id="4_i44vx"]
+[ext_resource type="PackedScene" uid="uid://lexg22o8obe5" path="res://prefabs/interruptor_y_fondo.tscn" id="4_xr0ex"]
 
 [node name="samu_scene2" type="Node2D"]
 
@@ -18,5 +19,8 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Adiossx"
 script = ExtResource("4_i44vx")
+
+[node name="Interruptor y fondo" parent="." instance=ExtResource("4_xr0ex")]
+position = Vector2(-6, 0)
 
 [connection signal="gasUp" from="Lata" to="Label" method="_on_lata_gas_up"]
