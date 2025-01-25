@@ -176,7 +176,7 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	
 	#si colisiono con un objeto de los que molestan
-	if body is PhysicsBody2D and !body.get_collision_layer_value(2):
+	if body is PhysicsBody2D and body.get_collision_layer_value(3):
 		releaseCan()
 		#var time = get_tree().create_timer(0.2)
 		#time.timeout.connect(body.queue_free)
@@ -236,18 +236,12 @@ func _process(delta: float) -> void:
 			invencible = true
 			timeToFlyCounter = 0
 			invencibleTimeCounter = 0
-			
-	
-	
+
 	if invencible:
 		invencibleTimeCounter += delta
 		if invencibleTimeCounter > postColisionInvencibleTime:
 			invencible = false
 			invencibleTimeCounter = 0
-			
-
-
-
 
 func isInLayer(layerBody:int, layerTarget:int) -> bool:
 	
@@ -260,16 +254,10 @@ func isInLayer(layerBody:int, layerTarget:int) -> bool:
 
 #cuando el trigger 2d detecta collision
 func _on_trigger_enter(body: Node2D) -> void:
-	
 	if body is CollisionObject2D:
 		if isInLayer(body.collision_layer,3):
 			#mandar la lata a tomar por culo
 			a_volar(body) 
-			
-
-	
-	pass # Replace with function body.
-
 
 func a_volar(body:Node2D):
 	

@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 GameManager="*res://scripts/GameManager.gd"
 Shaker="*res://addons/shaker/src/Shaker.gd"
 
+[display]
+
+window/size/mode=3
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="ProyectoGodot"
@@ -44,6 +49,7 @@ click={
 2d_physics/layer_5="Burbujas"
 2d_physics/layer_6="LataFisica"
 2d_physics/layer_7="Muebles"
+2d_physics/layer_8="LamparaAux"
 
 [rendering]
 
