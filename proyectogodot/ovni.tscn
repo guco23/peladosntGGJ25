@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3h07ovlys7f0"]
+[gd_scene load_steps=4 format=3 uid="uid://c3h07ovlys7f0"]
 
+[ext_resource type="Script" path="res://ovni.gd" id="1_s1v65"]
 [ext_resource type="Texture2D" uid="uid://b55h6ltx3wwjr" path="res://sprites/Ovni.png" id="1_wksfg"]
-[ext_resource type="Script" path="res://ovni.gd" id="2_p5i58"]
 
-[node name="Ovni" type="Sprite2D"]
-position = Vector2(-2.99998, 4.99999)
-scale = Vector2(6.64, 6.64)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dne4"]
+size = Vector2(84, 56)
+
+[node name="ovni" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_s1v65")
+nRandomPositions = 5
+velocityModule = 400.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_8dne4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.80879, 2.80879)
 texture = ExtResource("1_wksfg")
-script = ExtResource("2_p5i58")
-initialPos = null
-nSidesTouches = null
-leftSideTargetX = null

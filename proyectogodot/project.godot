@@ -18,10 +18,15 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://scripts/GameManager.gd"
+Shaker="*res://addons/shaker/src/Shaker.gd"
 
 [dotnet]
 
 project/assembly_name="ProyectoGodot"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/shaker/plugin.cfg")
 
 [input]
 

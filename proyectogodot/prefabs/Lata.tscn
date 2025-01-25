@@ -1,8 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1vst1fcr6m32"]
+[gd_scene load_steps=16 format=3 uid="uid://d1vst1fcr6m32"]
 
 [ext_resource type="Script" path="res://scripts/lata.gd" id="1_pv43h"]
 [ext_resource type="Texture2D" uid="uid://bhaafilxjo2h0" path="res://sprites/Coke.png" id="2_7mm1n"]
 [ext_resource type="Script" path="res://scripts/buble_spawner.gd" id="3_vp8yl"]
+[ext_resource type="AudioStream" uid="uid://dcreiatqf7s7x" path="res://Sound/48200__rwm28__soda3.wav" id="4_57hk0"]
+[ext_resource type="AudioStream" uid="uid://qt2y8trm6ro7" path="res://Sound/Lata_02.wav" id="5_3603b"]
+[ext_resource type="AudioStream" uid="uid://bjcdojhy6whe5" path="res://Sound/Lata_03.wav" id="6_5up2b"]
+[ext_resource type="AudioStream" uid="uid://bepdulmclidrm" path="res://Sound/Lata_04.wav" id="7_65vxq"]
+[ext_resource type="AudioStream" uid="uid://dgxw2g328i12r" path="res://Sound/Lata_05.wav" id="8_puyju"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qho2p"]
+atlas = ExtResource("2_7mm1n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ob33"]
+atlas = ExtResource("2_7mm1n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3nvy"]
+atlas = ExtResource("2_7mm1n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_acoqm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qho2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ob33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3nvy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7su64"]
 size = Vector2(62, 96)
@@ -10,16 +44,29 @@ size = Vector2(62, 96)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2mwn"]
 size = Vector2(62, 96)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7dmaj"]
+streams_count = 5
+stream_0/stream = ExtResource("4_57hk0")
+stream_1/stream = ExtResource("5_3603b")
+stream_2/stream = ExtResource("7_65vxq")
+stream_3/stream = ExtResource("6_5up2b")
+stream_4/stream = ExtResource("8_puyju")
+
 [node name="Lata" type="RigidBody2D"]
 collision_layer = 32
 collision_mask = 66
 input_pickable = true
 mass = 0.35
 script = ExtResource("1_pv43h")
+angleUpApertura = 30.0
+velocityColisionModule = 600.0
+minCollisonAngleVel = 1.0
+maxCollisonAngleVel = 2.0
+postColisionInvencibleTime = 1.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
-texture = ExtResource("2_7mm1n")
+sprite_frames = SubResource("SpriteFrames_acoqm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7su64")
@@ -35,7 +82,14 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_k2mwn")
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_7dmaj")
+bus = &"SFX"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="gasUp" from="." to="." method="_on_gas_up"]
 [connection signal="gasUp" from="." to="BubleSpawner" method="_on_lata_gas_up"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
