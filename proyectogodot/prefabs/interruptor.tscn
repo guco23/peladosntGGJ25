@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdxf4x40xin7l"]
+
+[ext_resource type="Texture2D" uid="uid://cjqcm23t60ys6" path="res://icon.svg" id="1_54o7m"]
+[ext_resource type="Script" path="res://prefabs/interruptor.gd" id="2_0mskx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_niy6a"]
+size = Vector2(128, 129)
+
+[node name="Interruptor" type="Sprite2D"]
+modulate = Color(0.996399, 0.969145, 0, 1)
+position = Vector2(204, 240)
+texture = ExtResource("1_54o7m")
+script = ExtResource("2_0mskx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_niy6a")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
