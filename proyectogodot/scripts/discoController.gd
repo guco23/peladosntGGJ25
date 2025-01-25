@@ -54,6 +54,8 @@ func _on_body_entered(body: Node) -> void:
 	if body is CollisionObject2D:
 		if isInLayer(body.collision_layer,2):
 			
+			
+			#cambiar color cuando choca con borde
 			var lastColor = $Sprite2D.modulate
 			var nextColor = getRandomColor()
 			

@@ -44,6 +44,7 @@ velocityModule = 500.0
 position = Vector2(717, 377)
 
 [node name="FondoNegro" parent="." instance=ExtResource("6_3fw6h")]
+visible = false
 position = Vector2(577, 260)
 
 [node name="Interruptor" parent="." node_paths=PackedStringArray("fondo") instance=ExtResource("7_blpky")]

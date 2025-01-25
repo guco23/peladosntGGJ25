@@ -35,12 +35,17 @@ func _input(event):
 	pass
 
 func _physics_process(delta: float) -> void:
+	
+	#ajustar posicion si esta dragueado
 	if(is_draggin):
+		
+		#para que no salga de la pantalla
 		var posX = clamp(get_global_mouse_position().x,0,get_viewport().size.x)
 		var posY = clamp(get_global_mouse_position().y,0,get_viewport().size.y)
 			
 		global_transform.origin = Vector2(posX,posY)
 		
+	#calcular el aumento de agitacion/gas	
 	if(abs(angular_velocity) > 0.4 || (!is_draggin && linear_velocity.length() > 5)):
 		#print_debug("angular velocity:", angular_velocity," lineal velocity: ",linear_velocity)
 		gasVal+= abs(angular_velocity)+linear_velocity.length()*0.001
