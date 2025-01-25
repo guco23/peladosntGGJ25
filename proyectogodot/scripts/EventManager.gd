@@ -91,6 +91,8 @@ func ApagaLuz():
 
 func Manchar():
 	var mancha = manchaPref.instantiate()
-	mancha.position = get_viewport().size / 2
-	#todo
+	var x = rand.randf_range(0, get_viewport().size.x)
+	var y = rand.randf_range(0, get_viewport().size.y)
+	mancha.position = Vector2(x,y)
+
 	add_sibling(mancha)
