@@ -26,7 +26,6 @@ var lastAngularVelocity:float = 0
 var lastPos:Vector2 
 var lastDragginTime:float
 
-
 #variables para volar la lata
 
 #es el angulo random en que salta hacia arriba, 180 todo el arco superior completo, 360 puede ir hacia abajo  
@@ -59,7 +58,12 @@ var collisioned:bool = false
 var linealVelocityToApply:Vector2 
 var angularVelocityToApply:float
 
+#Animacion de la lata
+var anim:AnimatedSprite2D
 
+
+#SonidoCosas
+var audi:AudioStreamPlayer2D
 
 signal gasUp (gasValue)
 
@@ -74,7 +78,8 @@ func _ready() -> void:
 	
 	lastPos = position
 	lastDragginTime = Time.get_ticks_msec()
-
+	audi = get_node("AudioStreamPlayer2D")
+	anim = get_node("Sprite2D")
 
 #soltar la lata
 func releaseCan():
@@ -193,7 +198,17 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			pass
 
 
+#Esto hay que parametrizarlo un poco para que quede elegante
 func _on_gas_up(gasValue: Variant) -> void:
+	if(gasValue>GameManager.gasThreshold||gasValue < GameManager.gasThreshold-1200):
+		#frame inicial
+		anim.frame =0
+	elif gasValue<GameManager.gasThreshold-1000:
+		#frame 2
+		anim.frame = 1
+	elif gasValue<GameManager.gasThreshold-500:
+		#frame 3
+		anim.frame = 2
 	pass # Replace with function body.
 
 
@@ -239,7 +254,7 @@ func _on_trigger_enter(body: Node2D) -> void:
 	if body is CollisionObject2D:
 		if isInLayer(body.collision_layer,3):
 			#mandar la lata a tomar por culo
-			a_volar(body)
+			a_volar(body) 
 			
 	
 	pass # Replace with function body.
@@ -252,7 +267,7 @@ func a_volar(body:Node2D):
 	
 	print_debug("aqui")
 	releaseCan()
-	
+	audi.play()
 	var angle = randf_range(-angleUpApertura/2,angleUpApertura/2)
 	
 	var dirX = sin(deg_to_rad(angle))
