@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbgp43f5wghmt"]
+[gd_scene load_steps=9 format=3 uid="uid://dbgp43f5wghmt"]
 
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="1_0evsp"]
 [ext_resource type="PackedScene" uid="uid://dxiexdiyj7w6e" path="res://prefabs/Mano.tscn" id="2_f8kvm"]
 [ext_resource type="PackedScene" uid="uid://ck6i8hoinifp2" path="res://prefabs/frisby_spawner.tscn" id="3_ekbbw"]
-[ext_resource type="PackedScene" uid="uid://nvosr181q3fo" path="res://prefabs/Mosca.tscn" id="4_ouuh2"]
 [ext_resource type="PackedScene" uid="uid://bibfm8xlyhlku" path="res://prefabs/EventManager.tscn" id="5_qf3io"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrbpg"]
@@ -26,13 +25,6 @@ collision_layer = 15
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo"]
 position = Vector2(572.25, 671)
 shape = SubResource("RectangleShape2D_rrbpg")
-
-[node name="Mosca" parent="Suelo" node_paths=PackedStringArray("playerRef") instance=ExtResource("4_ouuh2")]
-position = Vector2(740, 244)
-playerRef = NodePath("../../Lata")
-moscaSpeed = 500.0
-variablity = 100.0
-offset = Vector2(0, -10)
 
 [node name="Pared1" type="StaticBody2D" parent="."]
 collision_layer = 15
@@ -67,4 +59,6 @@ target = NodePath("../Lata")
 [node name="Lata" parent="." instance=ExtResource("1_0evsp")]
 position = Vector2(483, 376)
 
-[node name="EventManager" parent="." instance=ExtResource("5_qf3io")]
+[node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "fisbeeSpawner") instance=ExtResource("5_qf3io")]
+playerRef = NodePath("../Lata")
+fisbeeSpawner = NodePath("../FrisbySpawner")
