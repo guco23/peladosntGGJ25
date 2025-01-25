@@ -43,6 +43,10 @@ velocityModule = 500.0
 
 [node name="Lata" parent="." instance=ExtResource("5_mip2o")]
 position = Vector2(717, 377)
+angleUpApertura = 30.0
+velocityColisionModule = 600.0
+minCollisonAngleVel = 1.0
+maxCollisonAngleVel = 2.0
 
 [node name="FondoNegro" parent="." instance=ExtResource("6_3fw6h")]
 visible = false
