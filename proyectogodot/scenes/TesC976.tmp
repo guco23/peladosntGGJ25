@@ -9,13 +9,13 @@
 size = Vector2(1179.5, 91)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0sk2"]
-size = Vector2(116, 300.5)
+size = Vector2(116, 721)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23kdi"]
 size = Vector2(128.125, 740)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mm7t1"]
-size = Vector2(527, 91)
+size = Vector2(1124, 91)
 
 [node name="TestScene" type="Node2D"]
 
@@ -30,7 +30,7 @@ shape = SubResource("RectangleShape2D_rrbpg")
 collision_layer = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pared1"]
-position = Vector2(-31, 567.25)
+position = Vector2(-31, 357)
 shape = SubResource("RectangleShape2D_n0sk2")
 
 [node name="Pared2" type="StaticBody2D" parent="."]
@@ -44,7 +44,7 @@ shape = SubResource("RectangleShape2D_23kdi")
 collision_layer = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Techo"]
-position = Vector2(878.5, -21.5)
+position = Vector2(580, -21.5)
 shape = SubResource("RectangleShape2D_mm7t1")
 
 [node name="Mano" parent="." node_paths=PackedStringArray("canRef") instance=ExtResource("2_f8kvm")]
@@ -60,9 +60,7 @@ target = NodePath("../Lata")
 position = Vector2(483, 376)
 
 [node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner") instance=ExtResource("5_qf3io")]
-moscaWeight = 1
-discoWeight = 2
-manoWeight = 1
+frisbeeWeight = 1
 playerRef = NodePath("../Lata")
 mano = NodePath("../Mano")
 frisbeeSpawner = NodePath("../FrisbySpawner")

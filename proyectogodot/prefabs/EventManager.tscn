@@ -7,10 +7,6 @@ script = ExtResource("1_2j1a4")
 minTime = 1.0
 startTime = 2.0
 reductonFactor = 0.5
-moscaWeight = 1
-discoWeight = 1
-manoWeight = 1
-frisbeeWeight = 3
 
 [node name="Timer" type="Timer" parent="."]
 

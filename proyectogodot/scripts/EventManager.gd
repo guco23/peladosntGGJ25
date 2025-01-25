@@ -20,7 +20,7 @@ var discoPref : PackedScene = preload("res://prefabs/disco.tscn") #El prefab del
 @export var luz : Node2D
 
 var rand = RandomNumberGenerator.new()
-var totalWieight : int
+var totalWeight : int
 
 #Se encarga de accionar los distintos eventos, teniendo en cuenta cuánto tiempo lleva el jugador en partida
 #Cada evento se efectúa de formas distintas y tiene distintas condiciones
@@ -38,12 +38,9 @@ func _ready() -> void:
 	frisbeeWeight += manoWeight
 	luzWeight += frisbeeWeight
 	manchaWeight += luzWeight
-	totalWieight = manchaWeight
+	totalWeight = manchaWeight
 	print_debug(str(moscaWeight) + " " + str(discoWeight) + " " + str(manoWeight) + " " + str(frisbeeWeight) + " " + str(luzWeight) + " " + str(manchaWeight))
 	get_child(0).start(startTime)
-	pass
-
-func _process(delta: float) -> void:
 	pass
 
 func TimeEvent():
@@ -54,7 +51,7 @@ func TimeEvent():
 	LaunchEvent()
 
 func LaunchEvent():
-	var val = rand.randi_range(0, totalWieight)
+	var val = rand.randi_range(0, totalWeight)
 	print_debug(val)
 	if val <= moscaWeight:
 		GeneraMosca()
@@ -81,6 +78,9 @@ func GeneraMosca():
 	add_sibling(mosca)
 
 func GeneraDisco():
+	var disco = discoPref.instantiate()
+	disco.position = get_viewport().size / 2
+	add_sibling(disco)
 	discoWeight = moscaWeight #para que no pueda volver a suceder
 
 func LlamaMano():
