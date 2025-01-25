@@ -64,7 +64,7 @@ func LaunchEvent():
 	elif val <= manoWeight:
 		LlamaMano()
 		pass
-	elif val >= frisbeeWeight:
+	elif val <= frisbeeWeight:
 		LlamaFrisbee()
 		pass
 	elif val <= luzWeight:
@@ -79,6 +79,7 @@ func GeneraMosca():
 	var mosca = moscaPref.instantiate()
 	mosca.playerRef = playerRef
 	add_sibling(mosca)
+	
 	print_debug("mosca generada")
 	pass
 
@@ -87,6 +88,7 @@ func GeneraDisco():
 	discoWeight = moscaWeight #para que no pueda volver a suceder
 
 func LlamaMano():
+	mano.launchPunch()
 	print_debug("mano llamada")
 
 func LlamaFrisbee():
