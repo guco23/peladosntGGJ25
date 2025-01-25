@@ -110,4 +110,6 @@ func Manchar():
 	add_sibling(mancha)
 
 func TiraLampara():
-	lampara.Fall()
+	
+	if lampara != null:
+		lampara.Fall()
