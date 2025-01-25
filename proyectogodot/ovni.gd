@@ -1,5 +1,8 @@
 class_name ovni
-extends Sprite2D
+extends RigidBody2D
+
+
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 
 @export var target:Node2D
@@ -11,7 +14,7 @@ var randomPositionsCount:int = 0
 
 @export var velocityModule:float
 
-enum STATES{RANDOM_POSITIONS,BUSCAR_ATAQUE, SALIR}
+enum STATES{RANDOM_POSITIONS,COLOCARSE_ARRIBA,BUSCAR_ATAQUE,ATACAR, SALIR}
 
 var curr_state:STATES 
 
@@ -27,10 +30,12 @@ func _ready() -> void:
 	
 	position = initialPos
 	
-	var texture_size = texture.get_size() 
+	var texture_size = sprite_2d.texture.get_size() 
 	sprite_size = texture_size * scale  		
 
 	curr_state = STATES.RANDOM_POSITIONS
+	
+	goRandomPosition()
 	
 	
 	
@@ -40,19 +45,58 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	
 	if curr_state == STATES.RANDOM_POSITIONS:
 		if ((targetPos - position).length()) < closeUmbral:
 			randomPositionsCount +=1
-			if randomPositionsCount >= nRandomPositions:
-				curr_state = STATES.BUSCAR_ATAQUE
+			if randomPositionsCount == nRandomPositions:
+				curr_state = STATES.COLOCARSE_ARRIBA
+				
+				var nextTarget:Vector2 = \
+				Vector2(
+				randf_range(sprite_size.x,get_viewport_rect().size.x - sprite_size.x),
+				sprite_size.y)
+				
+				targetPos = nextTarget
+				
+				setVelocityToDir()
 			else:
 				goRandomPosition()
 		
+	
+	elif curr_state == STATES.COLOCARSE_ARRIBA:
+		
+		if ((targetPos - position).length()) < closeUmbral:
+			curr_state = STATES.BUSCAR_ATAQUE
+			
+		pass
 		
 		
 	elif curr_state == STATES.BUSCAR_ATAQUE:
+		
+		if abs(position.x -target.position.x)  < closeUmbral:
+			
+			curr_state = STATES.ATACAR
+			
+			linear_velocity = Vector2(0,0)
+			
+		else:
+			if(target.position.x > position.x):
+				linear_velocity = Vector2(1,0) * velocityModule
+			else:
+				linear_velocity = Vector2(-1,0) * velocityModule
 		pass
 	
+	
+	elif  curr_state == STATES.ATACAR:
+		
+		#esperar
+		
+		#disparar bala/laser
+		
+		#esperar y cambiar de estado
+		
+		pass
 	
 	
 	elif curr_state == STATES.SALIR:
@@ -74,17 +118,23 @@ func validPos(pos:Vector2) -> bool:
 	return false
 
 
-func goRandomPosition():
-	var nextTarget = randf_range(get_viewport_rect().size.x,get_viewport_rect().size.y)
+func setVelocityToDir():
 	
-	while !validPos(nextTarget):
-		nextTarget = randf_range(get_viewport_rect().size.x,get_viewport_rect().size.y)
+	var dir:Vector2 = (targetPos - position).normalized()
+	linear_velocity = dir * velocityModule
 	
+func goRandomPosition(): 
 	
-	var dir:Vector2 = (nextTarget - position).lenght()
+	var nextTarget:Vector2 = \
+	Vector2(
+		randf_range(sprite_size.x,get_viewport_rect().size.x - sprite_size.x),
+		randf_range(sprite_size.y,get_viewport_rect().size.y - sprite_size.y
+		))
 	
-	velocity = dir * velocityModule
+	targetPos = nextTarget
 	
+	setVelocityToDir()
+
 	
 func atack():
 	
