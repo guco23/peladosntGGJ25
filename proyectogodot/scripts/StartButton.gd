@@ -11,23 +11,13 @@ func _ready() -> void:
 	if GameManager.game_time > 0:
 		canStart = true
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if(canStart and event.pressed):
 			anim.play()
 
-
 func _on_body_exited(body: Node2D) -> void:
 	canStart = true
-	print_debug("Empieza")
-	pass # Replace with function body.
-
 
 func _on_sprite_2d_animation_finished() -> void:
 	#Cambiar de escena
