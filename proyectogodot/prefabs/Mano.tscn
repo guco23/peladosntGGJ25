@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://by8kpetkrl5ra"]
+[gd_scene load_steps=6 format=3 uid="uid://dxiexdiyj7w6e"]
 
 [ext_resource type="Texture2D" uid="uid://cpjdq2s8i7xw2" path="res://sprites/ManoAbiertaLarga.png" id="1_5grxn"]
 [ext_resource type="Script" path="res://scripts/mano.gd" id="1_77e5n"]

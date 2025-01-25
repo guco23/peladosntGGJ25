@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bibfm8xlyhlku"]
+
+[ext_resource type="Script" path="res://scripts/EventManager.gd" id="1_2j1a4"]
+
+[node name="EventManager" type="Node2D"]
+script = ExtResource("1_2j1a4")
+minTime = 1.0
+startTime = 4.0
+reductonFactor = 0.2
+moscaWeight = 1
+discoWeight = 3
+manoWeight = 4
+frisbeeWeight = 4
+luzWeight = 7
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="TimeEvent"]
