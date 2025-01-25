@@ -29,7 +29,6 @@ rotation = 1.5708
 
 [node name="Disco" parent="." instance=ExtResource("2_mlk18")]
 position = Vector2(345, 314)
-gravity_scale = 0.0
 
 [node name="Frisby" parent="." node_paths=PackedStringArray("targetNode") instance=ExtResource("2_d8p35")]
 position = Vector2(1062, 51)
