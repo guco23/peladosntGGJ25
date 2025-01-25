@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkmjv25la61im"]
+
+[ext_resource type="Texture2D" uid="uid://cjqcm23t60ys6" path="res://icon.svg" id="1_c72h5"]
+[ext_resource type="Script" path="res://prefabs/DragNDrop.gd" id="2_767x0"]
+[ext_resource type="Texture2D" uid="uid://bhaafilxjo2h0" path="res://sprites/Coke.png" id="2_c362y"]
+[ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="3_cdvw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vpws"]
+size = Vector2(124, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b12vw"]
+size = Vector2(149, 248)
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1006, 459)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_3vpws")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_c72h5")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(1007, 469)
+collision_layer = 4
+collision_mask = 2
+input_pickable = true
+script = ExtResource("2_767x0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_b12vw")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(7.63285, 7.63285)
+texture = ExtResource("2_c362y")
+
+[node name="Muro_samu" parent="." instance=ExtResource("3_cdvw2")]
+position = Vector2(575, 681)
+
+[connection signal="input_event" from="RigidBody2D" to="RigidBody2D" method="_on_input_event"]
