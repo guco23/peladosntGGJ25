@@ -7,10 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="3_7ak5f"]
 [ext_resource type="PackedScene" uid="uid://by8kpetkrl5ra" path="res://prefabs/Mano.tscn" id="5_7t18m"]
 [ext_resource type="PackedScene" uid="uid://lexg22o8obe5" path="res://prefabs/interruptor_y_fondo.tscn" id="6_tf5qs"]
-[ext_resource type="PackedScene" uid="uid://dj0244ww4qnc2" path="res://prefabs/Lampara.tscn" id="8_gcgv2"]
+[ext_resource type="PackedScene" uid="uid://dj0244ww4qnc2" path="res://prefabs/lampara.tscn" id="8_gcgv2"]
 
 [node name="MainScene" type="Node2D"]
-scale = Vector2(1.00689, 1.01794)
 
 [node name="Fondo" type="Sprite2D" parent="."]
 position = Vector2(578, 328)
@@ -24,7 +23,8 @@ manoWeight = 5
 frisbeeWeight = 4
 luzWeight = 2
 manchaWeight = 3
-lamparaWeight = 10
+lamparaWeight = 1
+ovniWeight = 1
 playerRef = NodePath("../Lata")
 mano = NodePath("../Mano")
 frisbeeSpawner = NodePath("../FrisbySpawner")
@@ -77,8 +77,8 @@ position = Vector2(54, 1)
 
 [node name="Lampara" parent="." instance=ExtResource("8_gcgv2")]
 position = Vector2(438, 103)
-contact_monitor = true
-max_contacts_reported = 1
+collision_layer = 8
+collision_mask = 40
 
 [editable path="Muros/Mesa"]
 [editable path="Muros/Mesa2"]
