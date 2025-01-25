@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bkmjv25la61im"]
+[gd_scene load_steps=15 format=3 uid="uid://bkmjv25la61im"]
 
 [ext_resource type="Texture2D" uid="uid://van3b883d8iu" path="res://sprites/Fondo.png" id="1_03cqj"]
 [ext_resource type="Texture2D" uid="uid://bhaafilxjo2h0" path="res://sprites/Coke.png" id="2_c362y"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="3_cdvw2"]
 [ext_resource type="Texture2D" uid="uid://kui7t7jlfpwo" path="res://sprites/BotonPlay.png" id="3_fuetm"]
 [ext_resource type="Script" path="res://scripts/DragNDrop.gd" id="4_entwa"]
-[ext_resource type="Texture2D" uid="uid://b14yg2yd2b3f7" path="res://sprites/Titulo.png" id="7_b15wy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vpws"]
 size = Vector2(124, 128)
@@ -57,8 +56,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b12vw"]
 size = Vector2(149, 248)
 
-[sub_resource type="Theme" id="Theme_cy7qg"]
-
 [node name="MainMenu" type="Node2D"]
 
 [node name="Fondo" type="Sprite2D" parent="."]
@@ -97,21 +94,6 @@ hframes = 3
 
 [node name="Muro_samu" parent="." instance=ExtResource("3_cdvw2")]
 position = Vector2(575, 681)
-
-[node name="Titulo" type="Sprite2D" parent="."]
-position = Vector2(376.54, 165.425)
-scale = Vector2(1.54, 1.54)
-texture = ExtResource("7_b15wy")
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(66.445, 278.685)
-
-[node name="TextEdit" type="TextEdit" parent="Node2D"]
-offset_right = 244.58
-offset_bottom = 122.68
-size_flags_stretch_ratio = 0.8
-theme = SubResource("Theme_cy7qg")
-text = "MAX SCORE"
 
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]

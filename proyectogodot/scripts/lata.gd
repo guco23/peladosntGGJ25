@@ -177,6 +177,11 @@ func _on_body_entered(body: Node) -> void:
 		#var time = get_tree().create_timer(0.2)
 		#time.timeout.connect(body.queue_free)
 	#print_debug("lata collision")
+	
+	var coll = body as CollisionObject2D
+	if coll.get_collision_layer_value(2) or coll.get_collision_layer_value(7):
+		get_node("WoodHit").play()
+		pass
 
 
 func _on_mouse_entered() -> void:
@@ -257,6 +262,7 @@ func _on_trigger_enter(body: Node2D) -> void:
 			#mandar la lata a tomar por culo
 			a_volar(body) 
 			
+
 	
 	pass # Replace with function body.
 
