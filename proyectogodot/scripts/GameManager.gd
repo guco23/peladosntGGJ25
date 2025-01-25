@@ -1,7 +1,7 @@
 extends Node
 
 var agitation : int
-
+var gasThreshold: int = 2000
 var isCokeDragging: bool = false
 var game_time : int
 

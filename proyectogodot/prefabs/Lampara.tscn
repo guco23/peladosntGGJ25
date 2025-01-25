@@ -1,11 +1,54 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj0244ww4qnc2"]
+[gd_scene load_steps=11 format=3 uid="uid://dj0244ww4qnc2"]
 
 [ext_resource type="Script" path="res://prefabs/Lampara.gd" id="1_6oag7"]
-[ext_resource type="Texture2D" uid="uid://bm3r1w15rof0j" path="res://sprites/Icono.png" id="1_gsj54"]
+[ext_resource type="Texture2D" uid="uid://botumk4fqi4qa" path="res://sprites/Lampara.png" id="2_0fs2s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_thl4s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3hhi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm2ff"]
+atlas = ExtResource("2_0fs2s")
+region = Rect2(0, 0, 50, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sxq1"]
+atlas = ExtResource("2_0fs2s")
+region = Rect2(50, 0, 50, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7cca"]
+atlas = ExtResource("2_0fs2s")
+region = Rect2(100, 0, 50, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1dos"]
+atlas = ExtResource("2_0fs2s")
+region = Rect2(150, 0, 50, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umgqm"]
+atlas = ExtResource("2_0fs2s")
+region = Rect2(200, 0, 50, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wmbik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm2ff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sxq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7cca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1dos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umgqm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Techocosa" type="StaticBody2D"]
 collision_layer = 0
@@ -30,5 +73,5 @@ collision_mask = 8
 scale = Vector2(2.23, 2.23)
 shape = SubResource("RectangleShape2D_n3hhi")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lampara"]
-texture = ExtResource("1_gsj54")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Lampara"]
+sprite_frames = SubResource("SpriteFrames_wmbik")

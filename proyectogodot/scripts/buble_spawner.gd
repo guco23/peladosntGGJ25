@@ -10,6 +10,6 @@ func SpawnBuble():
 
 
 func _on_lata_gas_up(gasValue: Variant) -> void:
-	if(gasValue > gasThreshold):
+	if(gasValue > GameManager.gasThreshold):
 		SpawnBuble()
 	pass # Replace with function body.
