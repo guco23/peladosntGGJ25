@@ -1,45 +1,48 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8va4t61l8uuk"]
+[gd_scene load_steps=4 format=3 uid="uid://buhxipay20mbe"]
 
-[ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="1_ux2e6"]
-[ext_resource type="PackedScene" uid="uid://bibfm8xlyhlku" path="res://prefabs/EventManager.tscn" id="1_ycih3"]
-[ext_resource type="PackedScene" uid="uid://ck6i8hoinifp2" path="res://prefabs/frisby_spawner.tscn" id="2_di8w1"]
-[ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="3_kvoc5"]
-[ext_resource type="PackedScene" uid="uid://by8kpetkrl5ra" path="res://prefabs/Mano.tscn" id="5_7t18m"]
-[ext_resource type="PackedScene" uid="uid://lexg22o8obe5" path="res://prefabs/interruptor_y_fondo.tscn" id="6_tf5qs"]
+[ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="1_f16cr"]
+[ext_resource type="Texture2D" uid="uid://van3b883d8iu" path="res://sprites/Fondo.png" id="2_5gtwk"]
+[ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="3_7ak5f"]
 
 [node name="MainScene" type="Node2D"]
 
-[node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner", "interruptorYfondo") instance=ExtResource("1_ycih3")]
-playerRef = NodePath("../Lata")
-mano = NodePath("../Mano")
-frisbeeSpawner = NodePath("../FrisbySpawner")
-interruptorYfondo = NodePath("../Interruptor y fondo")
-
-[node name="Lata" parent="." instance=ExtResource("3_kvoc5")]
-position = Vector2(717, 377)
-collision_mask = 2
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(578, 328)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_5gtwk")
 
 [node name="Muros" type="Node2D" parent="."]
 
-[node name="Muro_samu" parent="Muros" instance=ExtResource("1_ux2e6")]
-position = Vector2(572, -26)
-
-[node name="Muro_samu2" parent="Muros" instance=ExtResource("1_ux2e6")]
-position = Vector2(570, 674)
-
-[node name="Muro_samu3" parent="Muros" instance=ExtResource("1_ux2e6")]
-position = Vector2(1178, 313)
+[node name="Muro_samu2" parent="Muros" instance=ExtResource("1_f16cr")]
+position = Vector2(-27, 269)
 rotation = 1.5708
 
-[node name="Muro_samu4" parent="Muros" instance=ExtResource("1_ux2e6")]
-position = Vector2(-28, 345)
+[node name="Muro_samu4" parent="Muros" instance=ExtResource("1_f16cr")]
+position = Vector2(1181, 269)
 rotation = 1.5708
 
-[node name="FrisbySpawner" parent="." instance=ExtResource("2_di8w1")]
-velocityModule = 500.0
+[node name="Muro_samu" parent="Muros" instance=ExtResource("1_f16cr")]
+position = Vector2(572, 678)
 
-[node name="Mano" parent="." instance=ExtResource("5_7t18m")]
-position = Vector2(1216, 490)
-scale = Vector2(3.695, 3.695)
+[node name="Mesa" parent="Muros" instance=ExtResource("1_f16cr")]
+position = Vector2(229, 441)
+scale = Vector2(-2.66258, -0.197115)
 
-[node name="Interruptor y fondo" parent="." instance=ExtResource("6_tf5qs")]
+[node name="StaticBody2D" parent="Muros/Mesa" index="0"]
+collision_layer = 64
+
+[node name="Mesa2" parent="Muros" instance=ExtResource("1_f16cr")]
+position = Vector2(1022, 537)
+scale = Vector2(-1.22258, -1.74997)
+
+[node name="StaticBody2D" parent="Muros/Mesa2" index="0"]
+collision_layer = 64
+
+[node name="Muro_samu3" parent="Muros" instance=ExtResource("1_f16cr")]
+position = Vector2(572, -28)
+
+[node name="Lata" parent="." instance=ExtResource("3_7ak5f")]
+position = Vector2(226, 320)
+
+[editable path="Muros/Mesa"]
+[editable path="Muros/Mesa2"]
