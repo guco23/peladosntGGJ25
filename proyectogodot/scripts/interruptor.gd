@@ -22,6 +22,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if fondo.visible: 
 				fondo.encenderLuz()
+				get_node("AudioStreamPlayer2D").play()
 			
 			
 	

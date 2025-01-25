@@ -51,6 +51,7 @@ scale = Vector2(-2.66258, -0.197115)
 
 [node name="StaticBody2D" parent="Muros/Mesa" index="0"]
 collision_layer = 64
+collision_mask = 24
 
 [node name="Mesa2" parent="Muros" instance=ExtResource("1_f16cr")]
 position = Vector2(1022, 537)
@@ -58,6 +59,7 @@ scale = Vector2(-1.22258, -1.74997)
 
 [node name="StaticBody2D" parent="Muros/Mesa2" index="0"]
 collision_layer = 64
+collision_mask = 24
 
 [node name="Muro_samu3" parent="Muros" instance=ExtResource("1_f16cr")]
 position = Vector2(572, -28)

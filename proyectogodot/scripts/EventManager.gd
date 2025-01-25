@@ -101,6 +101,7 @@ func LlamaFrisbee():
 
 func ApagaLuz():
 	interruptorYfondo.get_child(0).apagarLuz()
+	get_node("switch").play()
 
 func Manchar():
 	var mancha = manchaPref.instantiate()
