@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://lexg22o8obe5"]
+
+[ext_resource type="PackedScene" uid="uid://bdxf4x40xin7l" path="res://prefabs/interruptor.tscn" id="1_n8aow"]
+[ext_resource type="PackedScene" uid="uid://c2vu6lki3c24f" path="res://prefabs/fondo_negro.tscn" id="2_ebf12"]
+
+[node name="Interruptor y fondo" type="Node2D"]
+
+[node name="FondoNegro" parent="." instance=ExtResource("2_ebf12")]
+position = Vector2(605, 265)
+
+[node name="Interruptor" parent="." instance=ExtResource("1_n8aow")]
+position = Vector2(1040, 318)
