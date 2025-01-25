@@ -176,7 +176,7 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	
 	#si colisiono con un objeto de los que molestan
-	if body is PhysicsBody2D and !body.get_collision_layer_value(2):
+	if body is PhysicsBody2D and body.get_collision_layer_value(3):
 		releaseCan()
 		#var time = get_tree().create_timer(0.2)
 		#time.timeout.connect(body.queue_free)
