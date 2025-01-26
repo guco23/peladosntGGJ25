@@ -18,6 +18,9 @@ enum GasMode {VELOCITY, ACELERATION }
 @export var lataMovingLinealVelUmbral:float = 5
 @export var lataMovingAngularVelUmbral:float = 0.4
 
+@export var tier1 =0.3
+@export var tier2 =0.6
+@export var tier3 =0.8
 
 
 #variables para aceleracion
@@ -137,6 +140,9 @@ func onLataMoving(delta:float):
 		lastLinearVelocity = linear_velocity
 		lastAngularVelocity = angular_velocity
 		
+	if gasVal > GameManager.gasThreshold:
+		linear_velocity =  (get_node("BubleSpawner").position - position).normalized()*500
+		print_debug(linear_velocity)
 	
 	#en cualquier caso:
 	gasUp.emit(gasVal)
@@ -208,16 +214,17 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 #Esto hay que parametrizarlo un poco para que quede elegante
 func _on_gas_up(gasValue: Variant) -> void:
-	if(gasValue < GameManager.gasThreshold-1200):
+	if(gasValue < GameManager.gasThreshold*tier1):
 		#frame inicial
 		anim.frame =0
-	elif gasValue<GameManager.gasThreshold-1000:
+	elif gasValue<GameManager.gasThreshold*tier2:
 		#frame 2
 		anim.frame = 1
-	elif gasValue<GameManager.gasThreshold-500:
+	elif gasValue<GameManager.gasThreshold*tier3:
 		#frame 3
 		anim.frame = 2
 	elif gasValue > GameManager.gasThreshold:
+		anim.frame =0
 		GameManager.lost()
 		gameOverSprite.visible = true
 	shaker.intensity = gasValue / GameManager.gasThreshold * 7
