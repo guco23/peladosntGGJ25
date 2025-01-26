@@ -7,11 +7,11 @@
 [ext_resource type="Script" path="res://scripts/botonVolverCreditos.gd" id="5_7oek8"]
 [ext_resource type="Texture2D" uid="uid://kui7t7jlfpwo" path="res://sprites/BotonPlay.png" id="6_xiwrn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tg2ad"]
-size = Vector2(149, 248)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udlie"]
 size = Vector2(124, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tg2ad"]
+size = Vector2(149, 248)
 
 [node name="CreditsScene" type="Node2D"]
 
@@ -19,6 +19,20 @@ size = Vector2(124, 128)
 position = Vector2(578, 328)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_bxyy1")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(220, 362)
+collision_mask = 4
+script = ExtResource("5_7oek8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("RectangleShape2D_udlie")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+scale = Vector2(4.31122, 4.27273)
+texture = ExtResource("6_xiwrn")
+flip_h = true
+hframes = 5
 
 [node name="Lata1" type="RigidBody2D" parent="."]
 position = Vector2(620, 335)
@@ -39,19 +53,5 @@ texture = ExtResource("3_7ts15")
 [node name="Muro_samu" parent="." instance=ExtResource("4_aglbf")]
 position = Vector2(575, 681)
 
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(220, 362)
-collision_mask = 4
-script = ExtResource("5_7oek8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-shape = SubResource("RectangleShape2D_udlie")
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
-scale = Vector2(4.31122, 4.27273)
-texture = ExtResource("6_xiwrn")
-flip_h = true
-hframes = 5
-
-[connection signal="input_event" from="Lata1" to="Lata1" method="_on_input_event"]
 [connection signal="input_event" from="Area2D2" to="Area2D2" method="_on_input_event"]
+[connection signal="input_event" from="Lata1" to="Lata1" method="_on_input_event"]
