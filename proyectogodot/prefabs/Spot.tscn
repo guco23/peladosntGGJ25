@@ -56,11 +56,12 @@ script = ExtResource("1_k70p6")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.54688, 1.54687)
+scale = Vector2(3.032, 3.032)
 sprite_frames = SubResource("SpriteFrames_f6t50")
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.945, 1.945)
 shape = SubResource("RectangleShape2D_kdfwa")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

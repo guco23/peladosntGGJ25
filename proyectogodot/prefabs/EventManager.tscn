@@ -7,7 +7,7 @@
 script = ExtResource("1_2j1a4")
 minTime = 1.0
 startTime = 5.0
-reductonFactor = 0.5
+reductonFactor = 0.25
 moscaWeightEx = 5
 discoWeightEx = 1
 manoWeightEx = 4
