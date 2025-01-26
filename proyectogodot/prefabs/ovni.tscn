@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3h07ovlys7f0"]
+[gd_scene load_steps=6 format=3 uid="uid://c3h07ovlys7f0"]
 
 [ext_resource type="Script" path="res://scripts/ovni.gd" id="1_s1v65"]
 [ext_resource type="Texture2D" uid="uid://b55h6ltx3wwjr" path="res://sprites/Ovni.png" id="1_wksfg"]
 [ext_resource type="AudioStream" uid="uid://dhh6vrfpjufip" path="res://Sound/OVNI.wav" id="3_pvnkp"]
+[ext_resource type="AudioStream" uid="uid://swjrq356ywkd" path="res://Sound/beam-fire.wav" id="4_4isoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dne4"]
 size = Vector2(84, 56)
@@ -28,6 +29,11 @@ texture = ExtResource("1_wksfg")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_pvnkp")
 autoplay = true
+bus = &"SFX"
+
+[node name="Disparo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4isoq")
+volume_db = -4.026
 bus = &"SFX"
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
