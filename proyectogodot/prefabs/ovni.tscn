@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c3h07ovlys7f0"]
 
-[ext_resource type="Script" path="res://ovni.gd" id="1_s1v65"]
+[ext_resource type="Script" path="res://scripts/ovni.gd" id="1_s1v65"]
 [ext_resource type="Texture2D" uid="uid://b55h6ltx3wwjr" path="res://sprites/Ovni.png" id="1_wksfg"]
 [ext_resource type="AudioStream" uid="uid://dhh6vrfpjufip" path="res://Sound/OVNI.wav" id="3_pvnkp"]
 
