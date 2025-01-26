@@ -12,10 +12,10 @@ moscaWeightEx = 5
 discoWeightEx = 2
 manoWeightEx = 4
 frisbeeWeightEx = 5
-luzWeightEx = 3
+luzWeightEx = 2
 manchaWeightEx = 3
 lamparaWeightEx = 1
-ovniWeightEx = 3
+ovniWeightEx = 2
 
 [node name="Timer" type="Timer" parent="."]
 
