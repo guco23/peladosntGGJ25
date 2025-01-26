@@ -9,12 +9,12 @@ minTime = 1.0
 startTime = 5.0
 reductonFactor = 0.25
 moscaWeightEx = 5
-discoWeightEx = 1
+discoWeightEx = 2
 manoWeightEx = 4
 frisbeeWeightEx = 5
 luzWeightEx = 3
 manchaWeightEx = 3
-lamparaWeightEx = 2
+lamparaWeightEx = 1
 ovniWeightEx = 4
 
 [node name="Timer" type="Timer" parent="."]

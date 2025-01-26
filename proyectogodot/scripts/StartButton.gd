@@ -15,6 +15,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if(canStart and event.pressed):
 			anim.play()
+			get_node("AudioStreamPlayer").play()
 
 func _on_body_exited(body: Node2D) -> void:
 	canStart = true
