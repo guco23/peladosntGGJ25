@@ -20,7 +20,7 @@ texture = ExtResource("2_5gtwk")
 [node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner", "interruptorYfondo") instance=ExtResource("1_ycih3")]
 startTime = 6.0
 reductonFactor = 0.3
-moscaWeightEx = 5
+moscaWeightEx = 500
 discoWeightEx = 1
 manoWeightEx = 4
 frisbeeWeightEx = 4
