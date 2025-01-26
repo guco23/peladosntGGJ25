@@ -21,7 +21,7 @@ func launchPunch()->void:
 
 func punch():
 	var twee = get_tree().create_tween()
-	twee.tween_property(self,"position",canRef.position+Vector2(-100,-60),0.2)
+	twee.tween_property(self,"position",canRef.position+Vector2(-100,0),0.5)
 	twee.tween_callback(reset_punch)
 	twee.tween_property(self,"position",originalPos,anticipationTime-2)
 	twee.tween_callback(Returned)
