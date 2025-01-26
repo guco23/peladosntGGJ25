@@ -32,6 +32,9 @@ func spawnFrisby():
 	newFrisby.targetNode = target
 	newFrisby.velocityModule = velocityModule
 	
+	if corner == 1 or corner == 3:
+		newFrisby.get_child(1).flip_v = true
+	
 	
 	add_child(newFrisby)
 	

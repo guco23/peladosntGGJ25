@@ -64,7 +64,6 @@ canRef = NodePath("../Lata")
 position = Vector2(427, 142)
 target = NodePath("../Lata")
 nRandomPositions = 1
-timeToShoot = 1.0
 timeToScape = 1.0
 
 [connection signal="gasUp" from="Lata" to="Label" method="_on_lata_gas_up"]
