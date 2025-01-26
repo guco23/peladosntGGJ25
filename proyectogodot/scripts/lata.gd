@@ -70,6 +70,7 @@ var audi:AudioStreamPlayer2D
 var shaker : Node2D
 @export var shakeIntensity : int
 @export var gameOverSprite : Node2D
+@export var scoreLabel : RichTextLabel
 
 signal gasUp (gasValue)
 
@@ -228,6 +229,9 @@ func _on_gas_up(gasValue: Variant) -> void:
 		anim.frame =0
 		GameManager.lost()
 		gameOverSprite.visible = true
+		scoreLabel.visible = true
+		scoreLabel.text = "SCORE:" + str(int(GameManager.game_time))
+			
 	shaker.intensity = gasValue / GameManager.gasThreshold * shakeIntensity
 
 
