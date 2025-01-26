@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2e0c82hig2o8"]
+[gd_scene load_steps=9 format=3 uid="uid://buhxipay20mbe"]
 
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="1_f16cr"]
 [ext_resource type="PackedScene" uid="uid://bibfm8xlyhlku" path="res://prefabs/EventManager.tscn" id="1_ycih3"]
 [ext_resource type="Texture2D" uid="uid://van3b883d8iu" path="res://sprites/Fondo.png" id="2_5gtwk"]
-[ext_resource type="PackedScene" path="res://prefabs/frisby_spawner.tscn" id="2_di8w1"]
+[ext_resource type="PackedScene" uid="uid://ck6i8hoinifp2" path="res://prefabs/frisby_spawner.tscn" id="2_di8w1"]
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="3_7ak5f"]
 [ext_resource type="PackedScene" uid="uid://by8kpetkrl5ra" path="res://prefabs/Mano.tscn" id="5_7t18m"]
 [ext_resource type="PackedScene" uid="uid://lexg22o8obe5" path="res://prefabs/interruptor_y_fondo.tscn" id="6_tf5qs"]
-[ext_resource type="PackedScene" uid="uid://dj0244ww4qnc2" path="res://prefabs/Lampara.tscn" id="8_gcgv2"]
 [ext_resource type="Texture2D" uid="uid://b7230ff0fyl06" path="res://sprites/GameOver.png" id="9_th56h"]
 
 [node name="MainScene" type="Node2D"]
@@ -17,20 +16,19 @@ position = Vector2(578, 328)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_5gtwk")
 
-[node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner", "interruptorYfondo", "lampara") instance=ExtResource("1_ycih3")]
-moscaWeight = 4
-discoWeight = 1
-manoWeight = 5
-frisbeeWeight = 4
-luzWeight = 2
-manchaWeight = 3
-lamparaWeight = 111
-ovniWeight = 1
+[node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner", "interruptorYfondo") instance=ExtResource("1_ycih3")]
+startTime = 3.0
+moscaWeightEx = 1
+discoWeightEx = 1
+manoWeightEx = 1
+frisbeeWeightEx = 1
+luzWeightEx = 1
+manchaWeightEx = 1
+lamparaWeightEx = 1
 playerRef = NodePath("../Lata")
 mano = NodePath("../Mano")
 frisbeeSpawner = NodePath("../FrisbySpawner")
 interruptorYfondo = NodePath("../Interruptor y fondo")
-lampara = NodePath("../Lampara")
 
 [node name="Muros" type="Node2D" parent="."]
 
@@ -64,6 +62,7 @@ position = Vector2(572, -28)
 
 [node name="Lata" parent="." node_paths=PackedStringArray("gameOverSprite") instance=ExtResource("3_7ak5f")]
 position = Vector2(226, 320)
+shakeIntensity = 0
 gameOverSprite = NodePath("../GameOver")
 
 [node name="Mano" parent="." node_paths=PackedStringArray("canRef") instance=ExtResource("5_7t18m")]
@@ -76,9 +75,6 @@ target = NodePath("../Lata")
 
 [node name="Interruptor y fondo" parent="." instance=ExtResource("6_tf5qs")]
 position = Vector2(54, 1)
-
-[node name="Lampara" parent="." instance=ExtResource("8_gcgv2")]
-position = Vector2(438, 103)
 
 [node name="GameOver" type="Sprite2D" parent="."]
 visible = false

@@ -14,7 +14,7 @@ func Fall():
 
 func _process(delta: float) -> void:
 	
-	
+	#print_debug(isActive)
 	set_collision_mask_value(4,isActive)
 	set_collision_layer_value(3,isActive)
 	
