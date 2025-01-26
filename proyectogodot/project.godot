@@ -13,7 +13,6 @@ config_version=5
 config/name="ProyectoGodot"
 run/main_scene="res://scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/image="res://sprites/Icono.png"
 config/icon="res://icon.svg"
 
 [autoload]
