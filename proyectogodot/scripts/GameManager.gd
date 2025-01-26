@@ -2,7 +2,7 @@ extends Node
 
 const TIME_OVER = 5
 var agitation : int
-var gasThreshold: int = 3000
+var gasThreshold: int = 3300
 var isCokeDragging: bool = false
 var game_time : float
 var high_score : int

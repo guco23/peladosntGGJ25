@@ -16,6 +16,7 @@ var randomPositionsCount:int = 0
 
 @export var timeToShoot:float
 @export var timeToScape:float
+@export var timeToCollider:float
 
 var timeCounter:float
 
@@ -40,6 +41,8 @@ var targetPos:Vector2
 @export var bulletSpeed:float = 800
 
 @export var bulletSpawnOffset:Vector2 = Vector2(0,10)
+
+var laser:Node2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -118,12 +121,23 @@ func _process(delta: float) -> void:
 				
 		elif !canScape: #esperar a escapa
 			timeCounter += delta
+			
+			if timeCounter > timeToCollider:
+				
+				#activar la layer 3 del laser
+				
+				if laser is CollisionObject2D:
+					laser.set_collision_layer_value(3,true)
+			
 			if  timeCounter > timeToScape:
 				canScape = true
 				
 				linear_velocity = Vector2(1,0) * velocityModule
 				
 				curr_state == STATES.SALIR
+				
+				if laser != null:
+					laser.queue_free()
 		pass
 	
 	
@@ -139,7 +153,7 @@ func _process(delta: float) -> void:
 #dispara aleatoriamente una bala o un laser hacia abajo
 func shoot():
 	
-	var shootType = randi()%1
+	var shootType = randi()%2
 	
 	print_debug("aaaa")
 	
@@ -163,13 +177,13 @@ func shoot():
 		
 	elif shootType == 1:#disparo de laser
 		
-		var newBullet = LASER.instantiate()
+		laser = LASER.instantiate()
 	
 		#newBullet.position = global_position
 		
-		newBullet.get_child(1).play()	
+		laser.get_child(1).play()	
 		#add_sibling(newBullet)
-		add_child(newBullet)
+		add_child(laser)
 		
 	
 	get_node("Disparo").play()
