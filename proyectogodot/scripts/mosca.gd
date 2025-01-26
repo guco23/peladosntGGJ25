@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 			var dir = targetPos  -position
 			
 			position += dir.normalized()*moscaSpeed*delta
-			print_debug(dir)
+			#print_debug(dir)
 		
 		
 		if(position.x < targetPos.x):
