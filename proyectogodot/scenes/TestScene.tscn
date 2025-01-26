@@ -62,7 +62,7 @@ target = NodePath("../Lata")
 position = Vector2(483, 376)
 collision_mask = 2
 
-[node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner", "interruptorYfondo", "lampara") instance=ExtResource("5_qf3io")]
+[node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner", "interruptorYfondo") instance=ExtResource("5_qf3io")]
 moscaWeight = 1
 discoWeight = 1
 manoWeight = 1
@@ -74,7 +74,6 @@ playerRef = NodePath("../Lata")
 mano = NodePath("../Mano")
 frisbeeSpawner = NodePath("../FrisbySpawner")
 interruptorYfondo = NodePath("../Interruptor y fondo")
-lampara = NodePath("../Techocosa")
 
 [node name="Interruptor y fondo" parent="." instance=ExtResource("5_ex1xu")]
 
