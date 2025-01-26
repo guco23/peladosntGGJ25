@@ -65,6 +65,7 @@ var anim:AnimatedSprite2D
 var audi:AudioStreamPlayer2D
 
 var shaker : Node2D
+@export var shakeIntensity : int
 @export var gameOverSprite : Node2D
 
 signal gasUp (gasValue)
@@ -220,7 +221,7 @@ func _on_gas_up(gasValue: Variant) -> void:
 	elif gasValue > GameManager.gasThreshold:
 		GameManager.lost()
 		gameOverSprite.visible = true
-	shaker.intensity = gasValue / GameManager.gasThreshold * 7
+	shaker.intensity = gasValue / GameManager.gasThreshold * shakeIntensity
 
 
 func _process(delta: float) -> void:

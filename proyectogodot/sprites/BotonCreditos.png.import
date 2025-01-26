@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmycqgplt1ofo"
-path="res://.godot/imported/Cursor.png-d9ee04e32de6a57af12c5a6f7a0c88b9.ctex"
+uid="uid://8kl4rsx7r48o"
+path="res://.godot/imported/BotonCreditos.png-1e5b96ca51b2e6a68a971498e0beb057.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Cursor.png"
-dest_files=["res://.godot/imported/Cursor.png-d9ee04e32de6a57af12c5a6f7a0c88b9.ctex"]
+source_file="res://sprites/BotonCreditos.png"
+dest_files=["res://.godot/imported/BotonCreditos.png-1e5b96ca51b2e6a68a971498e0beb057.ctex"]
 
 [params]
 
