@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d1vst1fcr6m32"]
+[gd_scene load_steps=27 format=3 uid="uid://d1vst1fcr6m32"]
 
 [ext_resource type="Script" path="res://scripts/lata.gd" id="1_pv43h"]
 [ext_resource type="Texture2D" uid="uid://bhaafilxjo2h0" path="res://sprites/Coke.png" id="2_7mm1n"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://dgxw2g328i12r" path="res://Sound/Lata_05.wav" id="8_puyju"]
 [ext_resource type="AudioStream" uid="uid://6pk204tec8wv" path="res://Sound/WoodHit.wav" id="9_1bwnp"]
 [ext_resource type="Script" path="res://addons/shaker/data/Vector2/ShakerTypeRandom2D.gd" id="12_troo8"]
+[ext_resource type="AudioStream" uid="uid://ct8nmm1wnb2mw" path="res://Sound/PopLata.wav" id="16_4wdip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qho2p"]
 atlas = ExtResource("2_7mm1n")
@@ -119,7 +120,7 @@ wait_time = 0.5
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BubleSpawner"]
 stream = ExtResource("4_jshpt")
-volume_db = -5.0
+volume_db = 5.0
 bus = &"SFX"
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -147,6 +148,9 @@ Targets = [NodePath("../Sprite2D")]
 AutoPlay = true
 intensity = 0.0
 shakerPreset = SubResource("Resource_4et27")
+
+[node name="SonidoPop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_4wdip")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="gasUp" from="." to="." method="_on_gas_up"]
