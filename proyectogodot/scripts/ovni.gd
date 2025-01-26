@@ -124,9 +124,6 @@ func _process(delta: float) -> void:
 				linear_velocity = Vector2(1,0) * velocityModule
 				
 				curr_state == STATES.SALIR
-		
-		
-		
 		pass
 	
 	
@@ -134,12 +131,7 @@ func _process(delta: float) -> void:
 		
 		if position.x > get_viewport_rect().size.x + sprite_size.x:
 			queue_free()
-		
-		
 		pass
-	
-	
-	
 	pass
 	
 	
@@ -179,7 +171,8 @@ func shoot():
 		#add_sibling(newBullet)
 		add_child(newBullet)
 		
-		
+	
+	get_node("Disparo").play()
 	pass
 	
 
