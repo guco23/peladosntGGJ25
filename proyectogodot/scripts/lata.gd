@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Lata
 
 #variables drag && drop
 var isPicked : bool
