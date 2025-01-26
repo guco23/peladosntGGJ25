@@ -4,14 +4,23 @@ extends Node
 @export var startTime : float #El tiempo inicial de nuevo evento
 @export var reductonFactor : float #El factor de reduccion del tiempo por evento
 
-@export var moscaWeight : int
-@export var discoWeight : int
-@export var manoWeight : int
-@export var frisbeeWeight : int
-@export var luzWeight : int
-@export var manchaWeight : int
-@export var lamparaWeight : int
-@export var ovniWeight : int
+@export var moscaWeightEx : int
+@export var discoWeightEx : int
+@export var manoWeightEx : int
+@export var frisbeeWeightEx : int
+@export var luzWeightEx : int
+@export var manchaWeightEx : int
+@export var lamparaWeightEx : int
+@export var ovniWeightEx : int
+
+var moscaWeight : int
+var discoWeight : int
+var manoWeight : int
+var frisbeeWeight : int
+var luzWeight : int
+var manchaWeight : int
+var lamparaWeight : int
+var ovniWeight : int
 
 @export var playerRef : Node2D
 
@@ -37,7 +46,16 @@ var totalWeight : int
 #El disco se spawnea una vez y se queda ahí para siempre rebotando
 #El interruptor tbd
 
-func _ready() -> void:	
+func _ready() -> void:
+	moscaWeight = moscaWeightEx
+	discoWeight = discoWeightEx
+	manoWeight = manoWeightEx
+	frisbeeWeight = frisbeeWeightEx
+	luzWeight = luzWeightEx
+	manchaWeight = manchaWeightEx
+	lamparaWeight = lamparaWeightEx
+	ovniWeight = ovniWeightEx
+	
 	get_child(0).wait_time = startTime
 	discoWeight += moscaWeight
 	manoWeight += discoWeight
@@ -80,6 +98,8 @@ func LaunchEvent():
 func GeneraMosca():
 	var mosca = moscaPref.instantiate()
 	mosca.playerRef = playerRef
+	var x = rand.randf_range(0, get_viewport().size.x)
+	mosca.position = Vector2(x, 0)
 	add_sibling(mosca)
 
 func GeneraDisco():

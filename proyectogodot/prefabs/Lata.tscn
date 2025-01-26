@@ -90,6 +90,7 @@ velocityColisionModule = 600.0
 minCollisonAngleVel = 4.0
 maxCollisonAngleVel = 8.0
 postColisionInvencibleTime = 1.0
+shakeIntensity = 4
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(9.96797e-05, 0.00298103)
