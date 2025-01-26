@@ -31,6 +31,7 @@ func _on_lata_gas_up(gasValue: Variant) -> void:
 
 
 func _on_timer_timeout() -> void:
+	$AudioStreamPlayer2D.play()
 	SpawnBuble()
 	timer.start()
 	pass # Replace with function body.

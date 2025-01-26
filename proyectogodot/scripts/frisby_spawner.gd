@@ -38,6 +38,7 @@ func spawnFrisby():
 	
 	add_child(newFrisby)
 	
+	$Fisbee.play()
 	#print_debug("frisby instanciado")
 
 

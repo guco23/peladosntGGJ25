@@ -63,6 +63,6 @@ func _on_body_entered(body: Node) -> void:
 				nextColor = getRandomColor()
 			
 			$Sprite2D.modulate = nextColor
-	
+			$AudioStreamPlayer2D.play()
 	
 	pass # Replace with function body.
