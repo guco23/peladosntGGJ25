@@ -36,7 +36,7 @@ var lampPref : PackedScene = preload("res://prefabs/Lampara.tscn")
 @export var mano : Node2D #La mano en la escena
 @export var frisbeeSpawner : Node2D
 @export var interruptorYfondo : Node2D
-@export var lampara : Node2D
+
 
 var rand = RandomNumberGenerator.new()
 var totalWeight : int
@@ -158,7 +158,6 @@ func TiraLampara():
 
 	timer.start()
 	
-	if lampara != null:
-		lampara.Fall()
+
 		
 		
