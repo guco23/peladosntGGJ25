@@ -17,14 +17,16 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_5gtwk")
 
 [node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner", "interruptorYfondo") instance=ExtResource("1_ycih3")]
-startTime = 3.0
-moscaWeightEx = 1
+startTime = 6.0
+reductonFactor = 0.3
+moscaWeightEx = 5
 discoWeightEx = 1
-manoWeightEx = 1
-frisbeeWeightEx = 1
-luzWeightEx = 1
-manchaWeightEx = 1
+manoWeightEx = 4
+frisbeeWeightEx = 4
+luzWeightEx = 3
+manchaWeightEx = 4
 lamparaWeightEx = 1
+ovniWeightEx = 3
 playerRef = NodePath("../Lata")
 mano = NodePath("../Mano")
 frisbeeSpawner = NodePath("../FrisbySpawner")
