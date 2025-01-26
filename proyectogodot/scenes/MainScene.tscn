@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="1_f16cr"]
 [ext_resource type="PackedScene" uid="uid://bibfm8xlyhlku" path="res://prefabs/EventManager.tscn" id="1_ycih3"]
 [ext_resource type="Texture2D" uid="uid://van3b883d8iu" path="res://sprites/Fondo.png" id="2_5gtwk"]
-[ext_resource type="PackedScene" uid="uid://qxl3u4ty7mme" path="res://prefabs/frisby_spawner.tscn" id="2_di8w1"]
+[ext_resource type="PackedScene" uid="uid://ck6i8hoinifp2" path="res://prefabs/frisby_spawner.tscn" id="2_di8w1"]
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="3_7ak5f"]
 [ext_resource type="PackedScene" uid="uid://by8kpetkrl5ra" path="res://prefabs/Mano.tscn" id="5_7t18m"]
 [ext_resource type="PackedScene" uid="uid://lexg22o8obe5" path="res://prefabs/interruptor_y_fondo.tscn" id="6_tf5qs"]
@@ -38,6 +38,9 @@ scale = Vector2(-2.66258, -0.197115)
 [node name="StaticBody2D" parent="Muros/Mesa" index="0"]
 collision_layer = 64
 
+[node name="CollisionShape2D" parent="Muros/Mesa/StaticBody2D" index="0"]
+position = Vector2(1.12672, -2.53662)
+
 [node name="Mesa2" parent="Muros" instance=ExtResource("1_f16cr")]
 position = Vector2(1022, 537)
 scale = Vector2(-1.22258, -1.74997)
@@ -63,7 +66,7 @@ target = NodePath("../Lata")
 
 [node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner", "interruptorYfondo") instance=ExtResource("1_ycih3")]
 discoWeightEx = 3
-lamparaWeightEx = 2
+lamparaWeightEx = 20
 ovniWeightEx = 3
 playerRef = NodePath("../Lata")
 mano = NodePath("../Mano")

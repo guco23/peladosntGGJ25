@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://qxl3u4ty7mme"]
+[gd_scene load_steps=3 format=3 uid="uid://ck6i8hoinifp2"]
 
 [ext_resource type="Script" path="res://scripts/frisby_spawner.gd" id="1_7ttop"]
 [ext_resource type="AudioStream" uid="uid://dp18lyam0m13r" path="res://Sound/Disco.wav" id="2_q7aru"]
