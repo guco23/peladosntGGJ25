@@ -31,8 +31,6 @@ var ovniPref : PackedScene = preload("res://prefabs/ovni.tscn")
 var lampPref : PackedScene = preload("res://prefabs/Lampara.tscn")
 
 
-
-
 @export var mano : Node2D #La mano en la escena
 @export var frisbeeSpawner : Node2D
 @export var interruptorYfondo : Node2D

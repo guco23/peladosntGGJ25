@@ -105,6 +105,9 @@ position = Vector2(0, -42)
 script = ExtResource("3_vp8yl")
 offsetChance = Vector2(30, 10)
 
+[node name="Timer" type="Timer" parent="BubleSpawner"]
+wait_time = 0.5
+
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 4
@@ -138,4 +141,5 @@ shakerPreset = SubResource("Resource_4et27")
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="BubleSpawner/Timer" to="BubleSpawner" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_trigger_enter"]
