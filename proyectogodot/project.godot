@@ -22,7 +22,6 @@ Shaker="*res://addons/shaker/src/Shaker.gd"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="viewport"
 
 [dotnet]

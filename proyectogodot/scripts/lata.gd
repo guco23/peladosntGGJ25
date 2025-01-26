@@ -19,6 +19,7 @@ enum GasMode {VELOCITY, ACELERATION }
 @export var lataMovingLinealVelUmbral:float = 5
 @export var lataMovingAngularVelUmbral:float = 0.4
 
+#porcentajes de agitacion
 @export var tier1 =0.3
 @export var tier2 =0.6
 @export var tier3 =0.8

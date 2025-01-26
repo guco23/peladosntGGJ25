@@ -18,8 +18,12 @@ func SpawnBuble():
 	buble.global_position = global_position+aux
 
 func _on_lata_gas_up(gasValue: Variant) -> void:
+	
+	#sacar burbujas cuando se va agitando
 	if(gasValue > GameManager.gasThreshold*can.tier2 and timer.is_stopped()):
 		timer.start()
+		
+	#sacar burbujas al final	
 	if(gasValue > GameManager.gasThreshold):
 		for i in range(2):
 			SpawnBuble()
