@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bkmjv25la61im"]
+[gd_scene load_steps=31 format=3 uid="uid://bkmjv25la61im"]
 
 [ext_resource type="Texture2D" uid="uid://van3b883d8iu" path="res://sprites/Fondo.png" id="1_03cqj"]
 [ext_resource type="Texture2D" uid="uid://bhaafilxjo2h0" path="res://sprites/Coke.png" id="2_c362y"]
@@ -19,6 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://bepdulmclidrm" path="res://Sound/Lata_04.wav" id="14_ihida"]
 [ext_resource type="AudioStream" uid="uid://dgxw2g328i12r" path="res://Sound/Lata_05.wav" id="15_a2ymr"]
 [ext_resource type="AudioStream" uid="uid://dcreiatqf7s7x" path="res://Sound/48200__rwm28__soda3.wav" id="16_m1s3g"]
+[ext_resource type="PackedScene" uid="uid://6mgmi6bcd07t" path="res://prefabs/Spot.tscn" id="20_c5r3q"]
+[ext_resource type="PackedScene" uid="uid://nvosr181q3fo" path="res://prefabs/Mosca.tscn" id="21_hkxyb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vpws"]
 size = Vector2(124, 128)
@@ -163,6 +165,14 @@ theme_override_fonts/normal_font = ExtResource("12_6kes8")
 theme_override_font_sizes/normal_font_size = 53
 text = "high score:"
 script = ExtResource("13_weais")
+
+[node name="Spot" parent="." instance=ExtResource("20_c5r3q")]
+position = Vector2(440, 518)
+scale = Vector2(1.07999, 1.07999)
+
+[node name="Mosca" parent="." instance=ExtResource("21_hkxyb")]
+position = Vector2(240, 324)
+mainMenu = true
 
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
