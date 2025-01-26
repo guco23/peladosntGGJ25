@@ -51,7 +51,7 @@ size = Vector2(78, 72)
 
 [node name="Spot" type="Area2D"]
 position = Vector2(-4, 6)
-scale = Vector2(4, 4)
+scale = Vector2(2.88, 2.88)
 script = ExtResource("1_k70p6")
 metadata/_edit_group_ = true
 
