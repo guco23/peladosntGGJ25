@@ -61,7 +61,7 @@ canRef = NodePath("../Lata")
 target = NodePath("../Lata")
 
 [node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner", "interruptorYfondo") instance=ExtResource("1_ycih3")]
-discoWeightEx = 1
+discoWeightEx = 3
 lamparaWeightEx = 2
 playerRef = NodePath("../Lata")
 mano = NodePath("../Mano")
