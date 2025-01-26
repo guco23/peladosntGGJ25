@@ -30,6 +30,7 @@ func _on_body_entered(body: Node) -> void:
 			
 			#lanzar animacion
 			$Sprite2D.play()
+			$AudioStreamPlayer2D.play()
 			#print_debug("desactivado")
 			
 	

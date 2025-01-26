@@ -7,6 +7,7 @@ var isMoused : bool
 
 #valor del gas
 var gasVal: float
+var pop:bool
 
 enum GasMode {VELOCITY, ACELERATION }
 
@@ -90,6 +91,7 @@ func _ready() -> void:
 	audi = get_node("AudioStreamPlayer2D")
 	anim = get_node("Sprite2D")
 	shaker = get_node("ShakerComponent2D")
+	pop = false
 
 #soltar la lata
 func releaseCan():
@@ -227,11 +229,15 @@ func _on_gas_up(gasValue: Variant) -> void:
 		#frame 3
 		anim.frame = 2
 	elif gasValue > GameManager.gasThreshold:
+		GameManager.isCokeDragging = false
 		anim.frame =0
 		GameManager.lost()
 		gameOverSprite.visible = true
 		scoreLabel.visible = true
 		scoreLabel.text = "SCORE:" + str(int(GameManager.game_time))
+		if !pop:
+			$SonidoPop.play()
+			pop = true
 	shaker.intensity = gasValue / GameManager.gasThreshold * shakeIntensity
 
 

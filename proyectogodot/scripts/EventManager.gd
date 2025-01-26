@@ -132,6 +132,7 @@ func Manchar():
 	var y = rand.randf_range(0, get_viewport().size.y)
 	mancha.position = Vector2(x,y)
 	add_sibling(mancha)
+	$Vomito.play()
 	#tirar sonido pringue
 
 func TiraLampara():

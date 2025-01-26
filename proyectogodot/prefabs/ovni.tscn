@@ -34,7 +34,6 @@ bus = &"SFX"
 
 [node name="Disparo" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_4isoq")
-volume_db = -4.026
 bus = &"SFX"
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bibfm8xlyhlku"]
+[gd_scene load_steps=4 format=3 uid="uid://bibfm8xlyhlku"]
 
 [ext_resource type="Script" path="res://scripts/EventManager.gd" id="1_2j1a4"]
 [ext_resource type="AudioStream" uid="uid://bd8v4xt58hk4" path="res://Sound/switch.wav" id="2_c1y4b"]
+[ext_resource type="AudioStream" uid="uid://b2ot0j4llad3i" path="res://Sound/Vomitando.wav" id="3_ampp4"]
 
 [node name="EventManager" type="Node2D"]
 script = ExtResource("1_2j1a4")
@@ -21,6 +22,10 @@ ovniWeightEx = 2
 
 [node name="switch" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_c1y4b")
+bus = &"SFX"
+
+[node name="Vomito" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ampp4")
 bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="TimeEvent"]
