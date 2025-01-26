@@ -212,6 +212,7 @@ func _on_mouse_exited() -> void:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed():
+			$PickUp.play()
 			GameManager.isCokeDragging = true
 			angular_velocity =0
 			pass

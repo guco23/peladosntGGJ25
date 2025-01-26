@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d1vst1fcr6m32"]
+[gd_scene load_steps=29 format=3 uid="uid://d1vst1fcr6m32"]
 
 [ext_resource type="Script" path="res://scripts/lata.gd" id="1_pv43h"]
 [ext_resource type="Texture2D" uid="uid://bhaafilxjo2h0" path="res://sprites/Coke.png" id="2_7mm1n"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://6pk204tec8wv" path="res://Sound/WoodHit.wav" id="9_1bwnp"]
 [ext_resource type="Script" path="res://addons/shaker/data/Vector2/ShakerTypeRandom2D.gd" id="12_troo8"]
 [ext_resource type="AudioStream" uid="uid://ct8nmm1wnb2mw" path="res://Sound/PopLata.wav" id="16_4wdip"]
+[ext_resource type="AudioStream" uid="uid://bg11ig3sp8vqj" path="res://Sound/PickupCan.wav" id="17_f6crw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qho2p"]
 atlas = ExtResource("2_7mm1n")
@@ -89,6 +90,11 @@ ScaleShake = Array[ExtResource("5_062m2")]([])
 bake_internal = 64
 __follow_timeline = false
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_narrq"]
+random_pitch = 1.5
+streams_count = 1
+stream_0/stream = ExtResource("17_f6crw")
+
 [node name="Lata" type="RigidBody2D"]
 collision_layer = 32
 collision_mask = 66
@@ -151,6 +157,10 @@ shakerPreset = SubResource("Resource_4et27")
 
 [node name="SonidoPop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_4wdip")
+
+[node name="PickUp" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_narrq")
+pitch_scale = 0.9
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="gasUp" from="." to="." method="_on_gas_up"]
