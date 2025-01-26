@@ -17,6 +17,7 @@ nRandomPositions = 3
 velocityModule = 400.0
 timeToShoot = 1.0
 timeToScape = 1.5
+timeToCollider = 1.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)

@@ -63,6 +63,7 @@ target = NodePath("../Lata")
 [node name="EventManager" parent="." node_paths=PackedStringArray("playerRef", "mano", "frisbeeSpawner", "interruptorYfondo") instance=ExtResource("1_ycih3")]
 discoWeightEx = 3
 lamparaWeightEx = 2
+ovniWeightEx = 3
 playerRef = NodePath("../Lata")
 mano = NodePath("../Mano")
 frisbeeSpawner = NodePath("../FrisbySpawner")
