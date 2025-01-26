@@ -15,7 +15,7 @@ frisbeeWeightEx = 5
 luzWeightEx = 3
 manchaWeightEx = 3
 lamparaWeightEx = 1
-ovniWeightEx = 4
+ovniWeightEx = 3
 
 [node name="Timer" type="Timer" parent="."]
 
