@@ -65,6 +65,7 @@ position = Vector2(572, -28)
 
 [node name="Lata" parent="." node_paths=PackedStringArray("gameOverSprite", "scoreLabel") instance=ExtResource("3_7ak5f")]
 position = Vector2(226, 320)
+shakeIntensity = 0
 gameOverSprite = NodePath("../GameOver")
 scoreLabel = NodePath("../ScoreLabel")
 

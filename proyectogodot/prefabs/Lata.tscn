@@ -93,7 +93,7 @@ postColisionInvencibleTime = 1.0
 shakeIntensity = 4
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(9.96797e-05, 0.00298103)
+position = Vector2(-0.622097, 0.283981)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_acoqm")
 

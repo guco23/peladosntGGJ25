@@ -1,5 +1,5 @@
-extends RigidBody2D
 class_name Lata
+extends RigidBody2D
 
 #variables drag && drop
 var isPicked : bool
@@ -232,7 +232,6 @@ func _on_gas_up(gasValue: Variant) -> void:
 		gameOverSprite.visible = true
 		scoreLabel.visible = true
 		scoreLabel.text = "SCORE:" + str(int(GameManager.game_time))
-			
 	shaker.intensity = gasValue / GameManager.gasThreshold * shakeIntensity
 
 
