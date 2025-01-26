@@ -17,6 +17,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var val=rng.randf_range(-variablity,variablity)
 	position += ((playerRef.position+offset-position).normalized()*moscaSpeed+Vector2(0,variablity))*delta
+	
+	
+	if(position.x < playerRef.position.x):
+		get_child(0).flip_h = true
+	else: 
+		get_child(0).flip_h = false
+	
 	pass
 
 
