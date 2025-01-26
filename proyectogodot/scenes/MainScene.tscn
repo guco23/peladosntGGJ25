@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="1_f16cr"]
 [ext_resource type="PackedScene" uid="uid://bibfm8xlyhlku" path="res://prefabs/EventManager.tscn" id="1_ycih3"]
 [ext_resource type="Texture2D" uid="uid://van3b883d8iu" path="res://sprites/Fondo.png" id="2_5gtwk"]
-[ext_resource type="PackedScene" uid="uid://ck6i8hoinifp2" path="res://prefabs/frisby_spawner.tscn" id="2_di8w1"]
+[ext_resource type="PackedScene" path="res://prefabs/frisby_spawner.tscn" id="2_di8w1"]
 [ext_resource type="PackedScene" uid="uid://d1vst1fcr6m32" path="res://prefabs/Lata.tscn" id="3_7ak5f"]
 [ext_resource type="PackedScene" uid="uid://by8kpetkrl5ra" path="res://prefabs/Mano.tscn" id="5_7t18m"]
 [ext_resource type="PackedScene" uid="uid://lexg22o8obe5" path="res://prefabs/interruptor_y_fondo.tscn" id="6_tf5qs"]

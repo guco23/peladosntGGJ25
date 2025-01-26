@@ -165,8 +165,6 @@ func _input(event):
 		
 		onLataDragging(event,currTime-lastDragginTime)
 		lastDragginTime = currTime
-		
-		
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -194,7 +192,7 @@ func _on_body_entered(body: Node) -> void:
 	var coll = body as CollisionObject2D
 	if coll.get_collision_layer_value(2) or coll.get_collision_layer_value(7):
 		get_node("WoodHit").play()
-		pass
+
 
 
 func _on_mouse_entered() -> void:

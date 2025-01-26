@@ -1,10 +1,14 @@
 extends RigidBody2D
 
 var gen:RandomNumberGenerator
+var canSound:AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	gen = RandomNumberGenerator.new()
+	canSound = get_node("AudioStreamPlayer")
+	contact_monitor = true
+	
 	pass # Replace with function body.
 
 
@@ -38,3 +42,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if event.is_pressed():
 			GameManager.isCokeDragging = true
 			pass
+
+
+func _on_body_entered(body: Node) -> void:
+	canSound.play()
+	pass # Replace with function body.
