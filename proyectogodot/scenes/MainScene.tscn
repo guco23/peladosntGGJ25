@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://buhxipay20mbe"]
+[gd_scene load_steps=11 format=3 uid="uid://buhxipay20mbe"]
 
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="1_f16cr"]
 [ext_resource type="PackedScene" uid="uid://bibfm8xlyhlku" path="res://prefabs/EventManager.tscn" id="1_ycih3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://lexg22o8obe5" path="res://prefabs/interruptor_y_fondo.tscn" id="6_tf5qs"]
 [ext_resource type="FontFile" uid="uid://wr6d062cm54s" path="res://fonts/home-video-font/HomeVideo-BLG6G.ttf" id="9_bm1gq"]
 [ext_resource type="Texture2D" uid="uid://b7230ff0fyl06" path="res://sprites/GameOver.png" id="9_th56h"]
+[ext_resource type="AudioStream" uid="uid://bagpby34agdwr" path="res://Sound/ambience-236734.wav" id="10_ik45q"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -87,6 +88,14 @@ theme_override_colors/default_color = Color(0.85792, 0.493159, 0, 1)
 theme_override_fonts/normal_font = ExtResource("9_bm1gq")
 theme_override_font_sizes/normal_font_size = 80
 text = "SCORE"
+
+[node name="Ambiente" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ik45q")
+volume_db = -10.265
+pitch_scale = 0.9
+autoplay = true
+
+[node name="Temardo" type="AudioStreamPlayer" parent="."]
 
 [editable path="Muros/Mesa"]
 [editable path="Muros/Mesa2"]

@@ -229,6 +229,7 @@ func _on_gas_up(gasValue: Variant) -> void:
 		#frame 3
 		anim.frame = 2
 	elif gasValue > GameManager.gasThreshold:
+		GameManager.isCokeDragging = false
 		anim.frame =0
 		GameManager.lost()
 		gameOverSprite.visible = true
