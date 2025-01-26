@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://cqwm74cp3654i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5y3ac"]
-size = Vector2(129, 129)
+size = Vector2(123.94, 76.0977)
 
 [node name="Muro_samu" type="Node2D"]
 scale = Vector2(8.94291, 0.398914)
