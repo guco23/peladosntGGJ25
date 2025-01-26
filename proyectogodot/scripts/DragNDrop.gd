@@ -8,7 +8,7 @@ func _ready() -> void:
 	gen = RandomNumberGenerator.new()
 	canSound = get_node("AudioStreamPlayer")
 	contact_monitor = true
-	
+	max_contacts_reported =1
 	pass # Replace with function body.
 
 

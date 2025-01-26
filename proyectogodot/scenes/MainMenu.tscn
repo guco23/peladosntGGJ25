@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bkmjv25la61im"]
+[gd_scene load_steps=29 format=3 uid="uid://bkmjv25la61im"]
 
 [ext_resource type="Texture2D" uid="uid://van3b883d8iu" path="res://sprites/Fondo.png" id="1_03cqj"]
 [ext_resource type="Texture2D" uid="uid://bhaafilxjo2h0" path="res://sprites/Coke.png" id="2_c362y"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cqwm74cp3654i" path="res://prefabs/muro_samu.tscn" id="3_cdvw2"]
 [ext_resource type="Texture2D" uid="uid://kui7t7jlfpwo" path="res://sprites/BotonPlay.png" id="3_fuetm"]
 [ext_resource type="Script" path="res://scripts/DragNDrop.gd" id="4_entwa"]
+[ext_resource type="AudioStream" uid="uid://dyfpfva5novh4" path="res://Sound/SelectBurbuja.wav" id="4_unmw2"]
 [ext_resource type="Texture2D" uid="uid://b14yg2yd2b3f7" path="res://sprites/Titulo.png" id="7_b15wy"]
 [ext_resource type="Script" path="res://scripts/BotonSalir.gd" id="8_jiykk"]
 [ext_resource type="Texture2D" uid="uid://d4fdg0vt0clyf" path="res://sprites/BotonQuitar.png" id="8_n4o38"]
@@ -45,19 +46,19 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_1kga4"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_prgar")
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_vaeqn")
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_w6w76")
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_bbe7p")
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_um4qh")
 }],
 "loop": false,
@@ -94,6 +95,10 @@ shape = SubResource("RectangleShape2D_3vpws")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Area2D"]
 scale = Vector2(4.31122, 4.27273)
 sprite_frames = SubResource("SpriteFrames_1kga4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource("4_unmw2")
+bus = &"SFX"
 
 [node name="Muro_samu" parent="." instance=ExtResource("3_cdvw2")]
 position = Vector2(575, 681)
