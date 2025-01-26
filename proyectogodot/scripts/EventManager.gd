@@ -65,6 +65,7 @@ func _ready() -> void:
 	lamparaWeight += manchaWeight
 	ovniWeight += lamparaWeight
 	totalWeight = ovniWeight
+	print_debug(str(totalWeight))
 	get_child(0).start(startTime)
 
 func TimeEvent():
