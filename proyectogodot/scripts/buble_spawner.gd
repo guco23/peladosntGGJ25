@@ -6,6 +6,9 @@ var can:Lata
 var timer:Timer
 @export var offsetChance:Vector2
 
+
+var gasV:float
+
 func _ready() -> void:
 	gen = RandomNumberGenerator.new()
 	can = get_parent()
@@ -19,9 +22,15 @@ func SpawnBuble():
 
 func _on_lata_gas_up(gasValue: Variant) -> void:
 	
+	gasV = gasValue
+	
 	#sacar burbujas cuando se va agitando
-	if(gasValue > GameManager.gasThreshold*can.tier2 and timer.is_stopped()):
+
+	if(gasValue > GameManager.gasThreshold*can.tier1 and timer.is_stopped()):
+		timer.wait_time = 0.4
 		timer.start()
+	
+	
 		
 	#sacar burbujas al final	
 	if(gasValue > GameManager.gasThreshold):
@@ -33,5 +42,9 @@ func _on_lata_gas_up(gasValue: Variant) -> void:
 func _on_timer_timeout() -> void:
 	$AudioStreamPlayer2D.play()
 	SpawnBuble()
+	
+	if gasV > GameManager.gasThreshold*can.tier2:
+		timer.wait_time = 0.2
+	
 	timer.start()
 	pass # Replace with function body.
