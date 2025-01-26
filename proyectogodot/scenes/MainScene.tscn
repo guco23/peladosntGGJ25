@@ -25,6 +25,7 @@ frisbeeWeightEx = 1
 luzWeightEx = 1
 manchaWeightEx = 1
 lamparaWeightEx = 1
+ovniWeightEx = 1000
 playerRef = NodePath("../Lata")
 mano = NodePath("../Mano")
 frisbeeSpawner = NodePath("../FrisbySpawner")

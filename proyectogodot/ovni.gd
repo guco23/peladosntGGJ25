@@ -23,7 +23,7 @@ var canShot:bool = false
 var canScape:bool = false
 
 const BULLET = preload("res://prefabs/bullet.tscn")
-
+const LASER = preload("res://prefabs/laser.tscn")
 
 enum STATES{RANDOM_POSITIONS,COLOCARSE_ARRIBA,BUSCAR_ATAQUE,ATACAR, SALIR}
 
@@ -170,7 +170,17 @@ func shoot():
 		
 		
 	elif shootType == 1:#disparo de laser
-		pass
+		
+		var newBullet = LASER.instantiate()
+	
+		#newBullet.position = global_position
+		
+		newBullet.get_child(1).play()	
+		#add_sibling(newBullet)
+		add_child(newBullet)
+		
+		
+	pass
 	
 
 	
